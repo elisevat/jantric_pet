@@ -1,0 +1,59 @@
+.module caption, .inline-group h2 {
+background-color: rgb(241, 172, 6)}
+
+body {font-family: Rubik, sans-serif;
+}
+
+#header {
+background-color: rgb(241, 172, 6)
+}
+
+a:visited, #site-name a:visited {
+    color: white;
+}
+
+a:visited {
+color: rgba(102, 102, 102, 1)
+}
+
+.theme-toggle svg.theme-icon-when-light {
+color: rgba(102, 102, 102, 1)
+}
+
+#user-tools{
+color:white;
+}
+
+#logout-form button, #user-tools {
+color: white;
+font-family: Rubik, sans-serif;
+}
+
+div.breadcrumbs {
+    background: #e5e1e1;
+    padding: 10px 40px;
+    border: none;
+    color: var(--breadcrumbs-fg);
+    text-align: left;
+}
+
+div.breadcrumbs {
+    background: #e5e1e1;
+    padding: 10px 40px;
+    border: none;
+    color: #f1ac06;
+    text-align: left;
+}
+
+div.breadcrumbs a {
+color: #272727;}
+
+.module h2, .module caption, .inline-group h2 {
+    margin: 0;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    text-align: left;
+    background: rgb(241, 172, 6);
+    color: white;
+}

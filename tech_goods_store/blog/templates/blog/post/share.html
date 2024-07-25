@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block breadcrumbs %}
+ <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="{% url 'blog:list_post' %}">Блог</a></li>
+                        <li><a href="{{ post.get_absolute_url }}">Пост</a></li>
+                        <li class="active"><a href="{% url 'blog:post_share' post.slug %}">Поделиться</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+{% endblock %}
+{% block content %}
+<div class="blog-area pb-60" style="height: 100%">
+    <div class="container">
+<div class="blog-detail-contact">
+    {% if sent %}
+    <h3>Успешно отправлено</h3>
+    <p>
+        "{{ post.title }}" был успешно отправлен
+        по адресу {{ form.cleaned_data.to }}.
+    </p>
+    {% else %}
+        <h3 style="margin-bottom: 30px">Поделиться статьей "{{ post.title }}" по электронной почте</h3>
+        <form id="contact-form" class="contact-form" action="" method="post">
+            {% csrf_token %}
+            <div class="address-wrapper">
+
+            {% for f in form %}
+
+
+                {{ f }}
+                {{ f.errors }}
+
+
+            {% endfor %}
+            </div>
+            <div class="send-email">
+                <input type="submit" value="Отправить" class="submit">
+            </div>
+<!--            <div class="address-wrapper">-->
+<!--            <div class="row">-->
+<!--                    <div class="col-md-6">-->
+<!--                        <div class="address-fname">-->
+<!--                            <input type="text" name="name" placeholder="Ваше имя">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-6">-->
+<!--                        <div class="address-email">-->
+<!--                            <input type="email" name="email" placeholder="E-mail">-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="address-subject">-->
+<!--                            <input type="text" name="subject" placeholder="Заголовок">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-12">-->
+<!--                        <div class="address-textarea">-->
+<!--                            <textarea name="message" placeholder="Текст комментария"></textarea>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <p class="form-message ml-15"></p>-->
+<!--            <div class="col-xs-12 footer-content mail-content">-->
+<!--                <div class="send-email pull-right">-->
+<!--                    <input type="submit" value="Отправить" class="submit">-->
+<!--                </div>-->
+<!--            </div>-->
+        </form>
+    {% endif %}
+    </div>
+    </div>
+</div>
+{% endblock %}

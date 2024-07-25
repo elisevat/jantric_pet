@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load blog_tags %}
+
+        {% block header %}
+            {% include 'blog/header.html' %}
+        {% endblock %}
+
+
+        {% block breadcrumbs %}
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="{% url 'blog:list_post' %}">Блог</a></li>
+                        <li class="active"><a href="{% url 'blog:posts_search' %}">Поиск</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        {% endblock %}
+
+
+        {% block content %}
+
+        <!-- Blog Area Start -->
+
+        <div class="blog-page pb-60">
+
+            <div class="container">
+                <!-- Row End -->
+                <div class="row">
+                    <div style="padding-right: 0px; padding-left: 0px" class="col-lg-9 flex-container">
+                    {% for post in posts %}
+                    <!-- Single Blog Start -->
+                    <div class="col-lg-6 col-md-6 col-sm-5">
+                        <div class="single-blog">
+<!--                            ЗДЕСЬ ДОЛЖНО БЫТЬ ФОТО-->
+                            <div class="blog-img">
+                                <a href="blog-details.html"><img src="{% static 'img/blog/1.jpg' %}" alt="blog-image"></a>
+                            </div>
+
+
+                            <div class="blog-content">
+                                    <h4 class="blog-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                                <div class="blog-meta">
+                                    <ul>
+                                        <li><span>Автор: </span> <a href="#">{{ post.author }}</a></li>
+                                        <li><span>Дата: </span> <a href="#">{{ post.date_publish }}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="readmore">
+                                    <a href="{{ post.get_absolute_url }}">
+                                        <p> {% autoescape off %}{{ post.content|truncatewords_html:15 }}{% endautoescape %}</p>
+                                        </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        {% empty %}
+                        <div class="col-lg-6 col-md-6 col-sm-5">
+                         <h5 class="blog-title">Нет результатов</h5>
+                        </div>
+
+                    {% endfor %}
+
+                    </div>
+
+                    {% show_sidebar cat_selected tags_selected %}
+                <!-- Row End -->
+                {% include 'blog/show_paginate.html' %}
+                <!-- Row End -->
+
+            <!-- Container End -->
+        </div>
+
+            </div>
+        </div>
+        <!-- Blog Area End -->
+        <!-- Brand Logo Start -->
+        <!-- Brand Logo End -->
+
+{% endblock %}

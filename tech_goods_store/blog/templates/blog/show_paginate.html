@@ -1,0 +1,31 @@
+
+{% if page_obj.object_list %}
+{% if page_obj.has_other_pages %}
+<div class="row">
+                    <div style="padding-left: 30px" class="col-sm-12">
+                        <ul class="blog-pagination pt-20">
+
+                            {% if page_obj.has_previous %}
+
+                            {% if page_obj.previous_page_number > 1 %}
+                            <li><a href="?page={{page_obj.previous_page_number}}"><i class="fa fa-angle-left"></i></a></li>
+                            {% endif %}
+
+                            <li><a href="?page={{page_obj.previous_page_number}}">{{page_obj.previous_page_number}}</a></li>
+                            {% endif %}
+
+                            <li class="active"><a href="?page={{page_obj.number}}">{{page_obj.number}}</a></li>
+                            {% if page_obj.has_next %}
+
+                            <li><a href="?page={{page_obj.next_page_number}}">{{page_obj.next_page_number}}</a></li>
+                            {% endif %}
+
+                            {% if page_obj.paginator.num_pages > page_obj.next_page_number %}
+                            <li><a href="?page={{page_obj.next_page_number}}"><i class="fa fa-angle-right"></i></a></li>
+                            {% endif %}
+                        </ul>
+                        <!-- End of .blog-pagination -->
+                    </div>
+</div>
+{% endif %}
+{% endif %}

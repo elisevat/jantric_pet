@@ -1,0 +1,79 @@
+{% load static %}
+<div class="col-lg-3">
+                        <div class="main-right-sidebar border-default universal-padding">
+                            <!-- Recent Post Start -->
+                            <div class="recent-post pt-30 same-sidebar">
+                                <h3 class="sidebar-title">Недавние посты</h3>
+                                <ul>
+                                    <!-- Singel Post Thumb Start -->
+                                    {% for recent_post in recent_posts %}
+                                    <li class="post-thumb fix">
+                                        {% if recent_post.image %}
+                                        <div class="left-post-thumb f-left mr-20 mb-20">
+                                            <a href="{{ recent_post.get_absolute_url }}"><img class="img" src="{{ recent_post.image.url }}" alt="latest-post-imgae" width="68px" height="53px"></a>
+                                        </div>
+                                        {% else %}
+                                        <div class="left-post-thumb f-left mr-20 mb-20">
+                                            <a href="{{ recent_post.get_absolute_url }}"><img class="img" src="{% static 'img/products/1.jpg' %}" alt="latest-post-imgae" width="68px" height="53px"></a>
+                                        </div>
+                                        {% endif %}
+                                        <div class="right-post-thumb fix">
+                                            <h4><a href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a></h4>
+                                            <span>{{ recent_post.date_publish }}</span>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                    <!-- Singel Post Thumb End -->
+
+                                </ul>
+                            </div>
+                            <!-- Recent Post End -->
+                            <!-- Category Post Start -->
+                            <div class="categorie recent-post same-sidebar">
+                                 <h3 class="sidebar-title mt-40">Категории</h3>
+                                 <ul class="categorie-list">
+                                     {% if not cat_selected %}
+                                     <li class="active"><a style="color: #f1ac06" href="{% url 'blog:list_post' %}">Все категории</a></li>
+                                     {% else %}
+                                     <li><a href="{% url 'blog:list_post' %}">Все категории</a></li>
+                                     {% endif %}
+                                     {% for cat in cats %}
+                                     {% if cat_selected == cat.slug %}
+                                      <li class="active"><a style="color: #f1ac06" href="{{ cat.get_absolute_url }}">{{ cat.name }} </a></li>
+                                     {% else %}
+                                     <li><a href="{{ cat.get_absolute_url }}">{{ cat.name }} </a></li>
+                                     {% endif %}
+                                     {% endfor %}
+                                 </ul>
+                            </div>
+                            <!-- Category Post End -->
+                            <!-- Meta Post Start -->
+
+                            <!-- Meta Post End -->
+                            <!-- Meta Post Start -->
+                            <div class="categorie recent-post same-sidebar">
+                                 <h3 class="sidebar-title mt-40">Теги</h3>
+                                 <ul class="tag-list">
+                                     {% for tag in tags %}
+                                     {% if tags_selected == tag.slug %}
+                                     <li class="active"><a style="color: #f1ac06" href="{% url 'blog:posts_tag' tag.slug %}">{{ tag.name }}</a></li>
+                                     {% else %}
+                                     <li><a href="{% url 'blog:posts_tag' tag.slug %}">{{ tag.name }}</a></li>
+                                     {% endif %}
+                                     {% endfor %}
+                                 </ul>
+                            </div>
+                            <!-- Meta Post End -->
+                            <!-- Meta Post Start -->
+                            <div class="categorie recent-post same-sidebar">
+                                 <h3 class="sidebar-title mt-40">Другое</h3>
+                                 <ul class="categorie-list">
+                                     <li><a href="#">Вход</a></li>
+                                     <li><a href="{% url 'blog:posts_feed' %}">Статьи <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+<!--                                     <li><a href="#">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>-->
+<!--                                     <li><a href="#">WordPress.org</a></li>-->
+                                 </ul>
+                            </div>
+                            <!-- Meta Post End -->
+                        </div>
+                    </div>

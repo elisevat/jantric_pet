@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% include 'header.html' %}
+{% endblock %}
+
+{% block breadcrumbs %}
+ <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="{% url 'blog:list_post' %}">Блог</a></li>
+                        <li class="active"><a href="{% url 'blog:add_post' %}">Добавить пост</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        {% endblock %}
+
+{% block content %}
+<div class="blog-page pb-60">
+    <div class="container">
+
+        <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                <div class="form-group">
+                    <label class="control-label" for="{{ field.auto_id }}">{{ field.label }}</label>
+                    {{ field }}
+                </div>
+                {{ f.errors }}
+                {% endfor %}
+                <input type="submit" value="Отправить" class="return-customer-btn">
+        </form>
+    </div>
+</div>
+{% endblock %}

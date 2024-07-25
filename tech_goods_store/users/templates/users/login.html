@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+        {% block header %}
+            {% include 'header.html' %}
+        {% endblock %}
+
+        {% block breadcrumbs %}
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        {% endblock %}
+
+        {% block content %}
+        <!-- LogIn Page Start -->
+        <div class="log-in pb-60">
+            <div class="container">
+                <div class="row">
+                    <!-- New Customer Start -->
+                    <div class="col-sm-6">
+                        <div class="well">
+                            <div class="new-customer">
+                                <h3>NEW CUSTOMER</h3>
+                                <p class="mtb-10"><strong>Register</strong></p>
+                                <p>By creating an account you will be able to shop faster, be up to date on an order's status, and keep track of the orders you have previously made</p>
+                                <a class="customer-btn" href="{% url 'users:register' %}">continue</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Customer End -->
+                    <!-- Returning Customer Start -->
+                    <div class="col-sm-6">
+                        <div class="well">
+                            <div class="return-customer">
+                                <h3 class="mb-10">RETURNING CUSTOMER</h3>
+                                <p class="mb-10"><strong>I am a returning customer</strong></p>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="next" value="{{ next }}">
+                                    {{ form.non_field_errors }}
+                                    {% for field in form %}
+                                    <div class="form-group">
+                                        <label class="control-label" for="{{ field.auto_id }}">{{ field.label }}</label>
+                                        {{ field }}
+                                        {{ field.errors }}
+                                    </div>
+                                    {% endfor %}
+                                    <p class="lost-password"><a href="{% url 'users:password_reset' %}">Забыли пароль?</a></p>
+                                    <input type="submit" value="Войти" class="return-customer-btn">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Returning Customer End -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- LogIn Page End -->
+        {% endblock %}

@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+{% load static %}
+{% block header %}
+            {% include 'blog/header.html' %}
+        {% endblock %}
+
+{% block breadcrumbs %}
+ <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="{% url 'blog:list_post' %}">Блог</a></li>
+                        <li class="active"><a href="{{ post.get_absolute_url }}">Пост</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Blog Area Start -->
+        <div class="blog-area pb-60">
+            <div class="container">
+                <div class="row">
+                    <!-- Main Blog Start -->
+                    <div class="col-lg-9">
+                        <!-- Blog Details Start -->
+                        <div class="blog-details">
+                            <div class="blog-img">
+                                {% if post.image %}
+                                <img src="{{ post.image.url }}" alt="blog-image" width="870px" height="468.5px">
+                                {% else %}
+                                <img src="{% static 'img/blog/details.jpg' %}" alt="blog-image" width="870px" height="468.5px">
+                                {% endif %}
+                            </div>
+                            <div class="blog-content">
+                                <h1>{{ post.title }}</h1>
+                                <div class="blog-meta">
+                                    <ul>
+                                        <li><span>Автор: </span> <a href="{{ post.get_absolute_url }}">{{ post.author }}</a></li>
+                                        <li><span>Дата публикации: </span> <a href="{{ post.get_absolute_url }}">{{ post.date_publish }}</a></li>
+                                    </ul>
+                                </div>
+                                <p class="mb-20">
+                                    {% autoescape off %}
+                                    {{ post.content }}
+                                    {% endautoescape %}
+                                </p>
+                                 <!--  Blog-Share Start  -->
+                                <div class="blog-share mtb-50">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-5 col-sm-6">
+                                            <span class="pull-left category-text">Категория: </span>
+                                            <ul class="list-inline">
+                                                <li><a href="{{ post.cats.get_absolute_url }}"> {{ post.cats }}</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-8 col-md-7 col-sm-6">
+                                            <div class="social-links text-right">
+                                                <ul class="social-link-list">
+                                                    <li>Share:</li>
+                                                    <li><a href="{% url 'blog:post_share' post.slug %}"><img src="{% static 'img/blog/email_png.png' %}" alt="" width="20" height="16"></a><li>
+                                                    <li><a href="#"><i class="fa fa-email"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-reddit"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End of Row -->
+                                </div>
+                                </div>
+                                <!--  Blog-Share End  -->
+                                <!--  Blog-Pager Start  -->
+                                <div class="blog-pager">
+                                    <ul class="pager">
+                                        <li class="previous"><a href="#"><i class="zmdi zmdi-chevron-left"></i>prev post</a></li>
+                                        <li class="next"><a href="#">Next post<i class="zmdi zmdi-chevron-right"></i></a></li>
+                                    </ul>
+                                </div>
+                                <!--  Blog-Pager End  -->
+                        </div>
+                        <!-- Blog Details End -->
+                         <!-- Blog Realated Post Start -->
+                        <div class="blog-related-post recent-post mtb-50">
+                            <h3 class="sidebar-title">Посты по теме</h3>
+                            <div class="blog-related-post-active owl-carousel">
+                                <!-- Single Blog Start -->
+                                {% for post in similar_posts %}
+                                <div class="single-blog">
+                                    <div class="blog-img">
+                                        <a href="blog-details.html"><img src="{% static 'img/blog/1.jpg' %}" alt="blog-image"></a>
+                                    </div>
+                                    <div class="blog-content">
+                                            <h4 class="blog-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                                        <div class="blog-meta">
+                                            <ul>
+                                                <li><span>Автор: </span> <a href="{{ post.get_absolute_url }}">{{ post.author }}</a></li>
+                                                <li><span>Дата: </span> <a href="{{ post.get_absolute_url }}">{{ post.date_publish }}</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="readmore">
+                                            <a href="{{ post.get_absolute_url }}">Читать пост</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Single Blog End -->
+                                {% empty %}
+                                <h4 class="blog-title">Пока ещё нет похожих постов</h4>
+
+                                <!-- Single Blog End -->
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="comment-area recent-post">
+                            {% with comments.count as total_comments %}
+                            <h3 class="sidebar-title mtb-50" >{{ total_comments }} КОММЕНТАРИЙ {{ total_comments|pluralize }}</h3>
+                            {% endwith %}
+                            <!-- Single Comment Start -->
+                            {% for comment in comments %}
+                            <div class="single-comment">
+                                <div class="comment-img f-left pr-30">
+                                    <img src="{% static 'img/blog/user.jpg' %}" alt="blog-comment">
+                                </div>
+                                <div class="comment-details fix">
+                                    <h4><a href="#">{{ comment.name }}</a></h4>
+                                    <span>{{ comment.date_create }}</span>
+                                    <p>{{ comment.body }}</p>
+                                </div>
+                                <a class="reply" href="#">reply</a>
+                            </div>
+                            {% endfor %}
+                            <!-- Single Comment End -->
+                        </div>
+                        <!-- Comment Area End -->
+                        <!-- Contact Email Area Start -->
+
+
+                        <div class="blog-detail-contact">
+                            {% include 'blog/post/include/form_comment.html' %}
+                    </div>
+
+                </div>
+                    {% show_sidebar cat_selected tags_selected %}
+                </div>
+            </div>
+            </div>
+                       {% endblock %}

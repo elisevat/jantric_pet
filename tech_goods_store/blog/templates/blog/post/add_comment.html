@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block breadcrumbs %}
+ <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="{% url 'blog:list_post' %}">Блог</a></li>
+                        <li><a href="{{ post.get_absolute_url }}">Пост</a></li>
+                        <li class="active"><a href="{% url 'blog:post_comment' post.slug %}">Оставить комментарий</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+{% endblock %}
+
+{% block content %}
+<div class="blog-detail-contact">
+     <div class="blog-area pb-60">
+            <div class="container">
+
+    {% if comment %}
+        <h3>Комментарий успешно оставлен</h3>
+        <p class="mb-20"><a href="{{ post.get_absolute_url }}">Вернуться к посту</a></p>
+    {% else %}
+        {% include 'blog/post/include/form_comment.html' %}
+    {% endif %}
+</div>
+
+</div>
+</div>
+{% endblock %}

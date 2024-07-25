@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% include 'header.html' %}
+{% endblock %}
+
+{% block breadcrumbs %}
+<!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Register Account Start -->
+        {% endblock %}
+
+{% block content %}
+ <div class="register-account pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="register-title">
+                            <h3 class="mb-10">REGISTER ACCOUNT</h3>
+                            <p class="mb-10">If you already have an account with us, please login at the login page.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row End -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.non_fields_errors }}
+                            {% for field in form %}
+                            {% if field.name != 'agree' and field.name != 'subs_news' %}
+                            <div class="form-group">
+                                <label class="control-label" for="{{ f.id_for_label }}"><span class="require">*</span>{{ field.label }}</label>
+                                <div class="col-sm-10">
+                                    {{ field }}
+                                    {{ field.errors }}
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            <div class="form-group">
+                                    <label class="control-label">{{ form.subs_news.label }}</label>
+                                    <div class="col-sm-10">
+                                        {{ form.subs_news }}
+                                        {{ form.subs_news.errors }}
+                                    </div>
+                            </div>
+
+                            <div class="buttons newsletter-input">
+                                <div class="pull-right">I have read and agree to the <a href="#" class="agree"><b>Privacy Policy</b></a>
+                                    {{ form.agree }}
+                                    {{ form.agree.errors }}
+                                    <input type="submit" value="Continue" class="newsletter-btn">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Register Account End -->
+{% endblock %}

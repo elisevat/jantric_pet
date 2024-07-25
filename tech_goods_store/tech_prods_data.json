@@ -1,0 +1,1273 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2024-06-01T07:19:35.530Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Кладка кирпича",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2024-06-01T07:20:25.810Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Крыши",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2024-06-01T07:22:08.055Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "2",
+    "object_repr": "Кладка кирпича своими руками",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2024-06-01T07:35:59.583Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "3",
+    "object_repr": "Раствор для кирпичной кладки",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2024-06-01T07:36:11.516Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "2",
+    "object_repr": "Кладка кирпича своими руками",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2024-06-01T07:44:46.635Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Внутренние работы",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2024-06-01T07:46:54.165Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "4",
+    "object_repr": "Классификация стен",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2024-06-20T05:09:50.791Z",
+    "user": 1,
+    "content_type": 10,
+    "object_id": "1",
+    "object_repr": "От rfer к Post 1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2024-06-26T11:43:27.338Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "2",
+    "object_repr": "Кладка кирпича своими руками",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2024-06-26T11:45:05.261Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "2",
+    "object_repr": "Слон",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"tagged item\", \"object\": \"\\u0420\\u0430\\u0441\\u0442\\u0432\\u043e\\u0440 \\u0434\\u043b\\u044f \\u043a\\u0438\\u0440\\u043f\\u0438\\u0447\\u043d\\u043e\\u0439 \\u043a\\u043b\\u0430\\u0434\\u043a\\u0438 tagged with \\u0421\\u043b\\u043e\\u043d\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2024-06-27T11:58:59.801Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "Что-то на умном",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2024-06-27T12:02:04.742Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "Что-то на умном",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043d\\u0442\\u0435\\u043d\\u0442\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2024-06-27T12:02:34.024Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "Что-то на умном",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043d\\u0442\\u0435\\u043d\\u0442\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2024-06-27T12:06:56.408Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "Что-то на умном",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043d\\u0442\\u0435\\u043d\\u0442\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2024-06-27T12:17:31.149Z",
+    "user": 1,
+    "content_type": 6,
+    "object_id": "5",
+    "object_repr": "Что-то на умном",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043d\\u0442\\u0435\\u043d\\u0442\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2024-07-01T08:05:56.199Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "localhost:8000",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Domain name\", \"Display name\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add posts",
+    "content_type": 6,
+    "codename": "add_posts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change posts",
+    "content_type": 6,
+    "codename": "change_posts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete posts",
+    "content_type": 6,
+    "codename": "delete_posts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view posts",
+    "content_type": 6,
+    "codename": "view_posts"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add tags",
+    "content_type": 7,
+    "codename": "add_tags"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change tags",
+    "content_type": 7,
+    "codename": "change_tags"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete tags",
+    "content_type": 7,
+    "codename": "delete_tags"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view tags",
+    "content_type": 7,
+    "codename": "view_tags"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add category",
+    "content_type": 8,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change category",
+    "content_type": 8,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete category",
+    "content_type": 8,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view category",
+    "content_type": 8,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 9,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 9,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 9,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 9,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add comment",
+    "content_type": 10,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change comment",
+    "content_type": 10,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete comment",
+    "content_type": 10,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view comment",
+    "content_type": 10,
+    "codename": "view_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add tag",
+    "content_type": 11,
+    "codename": "add_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change tag",
+    "content_type": 11,
+    "codename": "change_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete tag",
+    "content_type": 11,
+    "codename": "delete_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view tag",
+    "content_type": 11,
+    "codename": "view_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add tagged item",
+    "content_type": 12,
+    "codename": "add_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change tagged item",
+    "content_type": 12,
+    "codename": "change_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete tagged item",
+    "content_type": 12,
+    "codename": "delete_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view tagged item",
+    "content_type": 12,
+    "codename": "view_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add site",
+    "content_type": 13,
+    "codename": "add_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change site",
+    "content_type": 13,
+    "codename": "change_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete site",
+    "content_type": 13,
+    "codename": "delete_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view site",
+    "content_type": 13,
+    "codename": "view_site"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "blog",
+    "model": "posts"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "blog",
+    "model": "tags"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "blog",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "users",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "blog",
+    "model": "comment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "taggit",
+    "model": "tag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "taggit",
+    "model": "taggeditem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "sites",
+    "model": "site"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4qru1r0rahmj49d3jr0t0wxwgvyjptms",
+  "fields": {
+    "session_data": ".eJxVjEsOwjAMBe-SNYpipw0JS_Y9Q2U7DimgVupnhbg7VOoCtm9m3sv0tK213xad-yGbiwFz-t2Y5KHjDvKdxttkZRrXeWC7K_agi-2mrM_r4f4dVFrqty6RQduACqg-aiBhblkTYEoFzwFB0EfvimePAg5zkqZ1AFSaKIHM-wPiQzeO:1sBqOT:TqLx8S388wK9lVcqv7blr1daGezw0zt35jhIiNzJN6k",
+    "expire_date": "2024-06-11T06:33:09.677Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "c9a7ixsjg7esrf99rzmxi9pmn2qvquiq",
+  "fields": {
+    "session_data": ".eJxVjEsOwjAMBe-SNYpipw0JS_Y9Q2U7DimgVupnhbg7VOoCtm9m3sv0tK213xad-yGbiwFz-t2Y5KHjDvKdxttkZRrXeWC7K_agi-2mrM_r4f4dVFrqty6RQduACqg-aiBhblkTYEoFzwFB0EfvimePAg5zkqZ1AFSaKIHM-wPiQzeO:1sK9hA:8Nhf7hqw7dQ-gbZJrLC5Ezm0X89oJSx7uAxHDb_DUIY",
+    "expire_date": "2024-07-04T04:46:48.837Z"
+  }
+},
+{
+  "model": "blog.posts",
+  "pk": 1,
+  "fields": {
+    "title": "Post 1",
+    "slug": "post-one",
+    "image": "",
+    "content": "content num one",
+    "author": 1,
+    "date_create": "2024-05-28T08:28:39.033Z",
+    "date_update": "2024-05-28T08:46:04.161Z",
+    "date_publish": "2024-05-28T08:27:11.550Z",
+    "is_published": true,
+    "cats": null
+  }
+},
+{
+  "model": "blog.posts",
+  "pk": 2,
+  "fields": {
+    "title": "Кладка кирпича своими руками",
+    "slug": "kladka-kirpicha-svoimi-rukami",
+    "image": "",
+    "content": "В строительных магазинах появилось большое количество разнообразных материалов для возведения домов и других сооружений. Несмотря на это кирпич не теряет своей популярности. Он используется в качестве основного материала и для декоративной отделки. Чтобы быстро и качественно положить кирпич, важно знать как правильно осуществить кладку своими руками.\r\n\r\nОсновные термины\r\nДля освоения техники кладки необходимо разбираться в названиях граней кирпича и основных понятиях. В описаниях и схемах встречаются следующие термины:\r\n\r\nверхняя и нижняя пастель — широкие основные грани, на которые укладываются кирпичи при помощи раствора;\r\nтычки — две боковые короткие стороны материала;\r\nложки — две боковые узкие стороны кирпича;\r\nусенки — острые ребра;\r\nверсты — ряды кирпичей по краям ряда кладки, которые могут быть наружными или внутренними;\r\nзабутка — кирпичи в ряду кладки, которые находятся между наружными и внутренними верстами;\r\nфаска — срез края кирпича;\r\nсистема перевязки — способ, который характеризует порядок укладки камней по отношению друг к другу.\r\nСтандартные размеры одинарного кирпича составляют 250х125х65 мм, полуторного — 250х125х88 мм, двойного — 250х120х138 мм. В зависимости от производителя грани могут отличаться на 1–3 мм, поэтому перед покупкой необходимо уточнять размер изделий.\r\n\r\nВиды кладки\r\nСуществуют различные виды кладок кирпича в зависимости от формы и текстуры материала. При выборе необходимо рассчитать толщину стены и вес конструкции. Этот процесс необходимо осуществлять на этапе проектирования постройки. От этого зависит формирование соответствующего фундамента.\r\n\r\nОсновные виды кладок:\r\n\r\nВ четверть кирпича. Кладка используется для формирования перегородок, печей, каминов. Толщина стены составляет 65 мм.\r\nВ половину кирпича. Вариант кладки является самым простым и экономным из всех имеющихся видов. Освоить ее может даже человек, который никогда не занимался строительством стен из кирпичей. Используется для возведения межкомнатных перегородок, а также для отделки фасада. Толщина стены будет составлять 125 мм при использовании стандартного материала. Для строительства несущих стен вид кладки не используется, так как ее ширина должна быть от 250 до 380 мм.\r\nВ кирпич. Ширина стены при данном виде укладки составляет 250 мм, поэтому ее можно использовать для строительства перегородок, цоколя, несущих стен одноэтажного дома, вторых этажей и хозяйственных построек. При формировании несущей стены необходимо дополнительно укреплять камни арматурой. Кирпичные ряды формируются попеременно: первый — по два камня вдоль, второй — поперек.\r\nВ полтора кирпича. Данный вид используется для возведения несущих стен в строительстве домов от одного до трех этажей. При его использовании отпадает необходимость дополнительно декорировать фасад здания. Ширина стены составляет 380 мм.\r\nВ два кирпича. Вид укладки используется для формирования стен, которые будут испытывать большую нагрузку: потолочные перекрытия, бытовая техника и т. д. Используется для строительства наружных, несущих стен и межкомнатных перегородок при необходимости. Ширина кладки будет составлять 510 мм.\r\nВ два с половиной. Толщина стены составляет 640 мм. Кирпичную укладку используют для формирования любых видов стен, которые будут выдерживать большую нагрузку.",
+    "author": 1,
+    "date_create": "2024-06-01T07:22:08.038Z",
+    "date_update": "2024-06-26T11:43:27.285Z",
+    "date_publish": "2024-06-01T07:57:47Z",
+    "is_published": true,
+    "cats": 1
+  }
+},
+{
+  "model": "blog.posts",
+  "pk": 3,
+  "fields": {
+    "title": "Раствор для кирпичной кладки",
+    "slug": "rastvor-dlya-kirpichnoj-kladki",
+    "image": "",
+    "content": "Для прочности стены важно приготовить качественный раствор. При возведении домов и других сооружений используют цементные растворы, известковые и цементно-известковые смеси.\r\n\r\nРаствор из известки применяется для сооружения межкомнатных перегородок, установки каменных ограждений.\r\n\r\nДля его приготовления выполнять следующие действия:\r\n\r\nСмешать одну часть извести и две–пять частей мелкозернистого песка до получения однородной массы.\r\nДобавить воды в таком количестве, чтобы смесь достигла консистенции средней густоты.\r\nМассу мешать до тех пор, пока в ней не останется комков и примесей.\r\nРаствор из цемента является популярным средством для формирования кирпичных сооружений. Его используют для укладки стен толщиной до 250 мм. Для приготовления качественной смеси необходимо использовать цемент не ниже марки М400.\r\n\r\nЭтапы приготовления:\r\n\r\nСмешать сухую смесь: цемент — одна часть, мелкозернистый песок — три–шесть частей. Количество песка зависит от марки цемента.\r\nНалить воды, и замешать раствор до получения однородной массы.\r\nЦементный раствор является малоподвижным и жестким. Для увеличения эластичности в него добавляют моющие средства для посуды, жидкое мыло или покупные пластификаторы.\r\n\r\nЦементно-известковая смесь лучший вариант для кирпичной кладки. Он отличается особой пластичностью и хорошими эксплуатационными характеристиками после застывания. Раствору при помощи колера можно придать цвет кирпича для формирования декоративной отделки.\r\n\r\nПошаговое приготовление:\r\n\r\nСмешать сухую смесь: цемент и известку по одной части, песок — пять частей. Компоненты хорошо перемешать.\r\nДобавить воды для получения густой однородной массы.\r\nДля увеличения пластичности добавить средство для мытья посуды.\r\nГотовую смесь необходимо использовать в течение двух часов, поэтому не стоит замешивать большое количество раствора. Через указанное время он начнет застывать или произойдет отделение воды.\r\n\r\nТехника кладки кирпича\r\nСуществуют три основные вида техники укладки кирпича: «вприсык», «вприжим» и «вприсык с подрезкой».\r\n\r\nПеред тем, как приступить к основной работе, необходимо выполнить следующие действия:\r\n\r\nопределиться с видом кладки и перевязки;\r\nподготовить необходимые инструменты;\r\nприготовить раствор.\r\nКирпичные стены необходимо выкладывать при температуре не ниже +7 градусов. При несоблюдении условия застывший раствор будет крошиться. При проведении строительства при пониженных температурах необходимо добавлять в раствор противоморозные добавки.\r\n\r\nТехника кирпичной кладки «вприсык»\r\nГлавная особенность техники — применение эластичного раствора, который легко поддается смещению. Для правильного ее осуществления выполняются следующие действия:\r\n\r\nВыложить раствор по всей поверхности стены с отступом от внешних краев на 20–25 мм. Возле выложенных камней оставить чуть больше раствора для заполнения вертикальных швов.\r\nВзять кирпич в руки и положить его на острое ребро на 10–15 см от положенных уже камней.\r\nПлавным движением уложить его на основание, одновременно подтягивая в предыдущему камню. При этом действии раствор должен заполнить вертикальный шов.\r\nДля прочности стены необходимо следить, чтобы швы между камнями были полностью заполненными.\r\n\r\nТехника «вприжим»\r\nОсобенность техники — применение жесткого раствора и трудоемкость выполнения. Неопытному строителю самостоятельно сложно будет осуществить качественную работу. Пошаговое выполнение техники:\r\n\r\nРаствор положить на несколько кирпичей — от трех до пяти штук. Расстояние от внешних краев должно быть 12–15 мм.\r\nВзять кирпич в руку и положить на раствор необходимой гранью.\r\nДругой рукой при помощи инструмента небольшое количество раствора прижать к предыдущему камню.\r\nКирпич прижать к установленному камню, мастерок в этот момент убрать. Осуществить подрезку швов.\r\nВприсык с подрезкой\r\nТехника выполняется аналогично кладке «вприсык». Отличительная особенность — раствор выкладывается на 12–15 мм от внешнего края стены. Подрезка швов осуществляется максимально быстро.\r\n\r\nКирпичная кладка своими руками: инструменты, порядок и особенности\r\nДля выполнения укладки кирпичей следует подготовить инструменты и материалы:\r\n\r\nосновной материал — кирпичи;\r\nпесок, цемент и воду для приготовления раствора;\r\nбетономешалку;\r\nметаллический угол — порядовку;\r\nлопату;\r\nдва–три ведра;\r\nмастерок (кельму);\r\nрасшивку;\r\nлазерный или строительный уровень;\r\nмолоток-кирку;\r\nспециальный отвес — груз на нитке;\r\nправило;\r\nшнур, веревку или леску.\r\nПри формировании кирпичной стены необходимо выполнять последовательно следующие виды работ:\r\n\r\nВывести поочередно все четыре угла в несколько рядов.\r\nНа основание будущего дома положить рубероид и нанести слой строительного раствора. Затем натянуть веревку (леску) по периметру строения. Натяжение должно быть достаточно тугим, от этого зависит ровность будущей стены.\r\nНа первый кирпич наносится слой раствора и плотно прикладывается к углу. Следующие камни укладываются таким же способом.\r\nПроверять регулярно при помощи уровня ровность кладки.\r\nПо каждому камню делать постукивающие движения, чтобы выступил лишний раствор. Его убирают специальным инструментом — мастерком.\r\nПри строительстве несущих стен необходимо прокладывать арматуру через каждые пять–шесть рядов.\r\n\r\nОсобенности выполнения строительных работ при укладке кирпичной стены:\r\n\r\nДля крепления по периметру строения веревки (лески) применяют порядовки или гвозди. Порядовки закрепляются при помощи специальных скоб, которые крепятся в швы между кирпичами. На приспособлении имеются отметки, при помощи которых устанавливают необходимую толщину ряда. При использовании гвоздей веревка натягивается таким способом, чтобы она проходила по верхней грани внутренней и наружной части камня.\r\nПри формировании первого ряда необходимо точно выполнять укладку, нельзя допускать искривления ряда выше или ниже. При нарушении технологии стена получиться неровной, и работу придется переделывать. Швы между кирпичами должны составлять семь-восемь миллиметров.\r\nПеред началом работы необходимо подготовить неполномерные кирпичи. Для этого используют молоток-кирку. Чтобы выполнить работу самостоятельно, новичку необходимо потренироваться. При проведении неправильных действий увеличится расход материала. На кирпиче делаются зарубки в соответствии с необходимым размером. Прикладывают кирку и резким ударом разламывают материал.\r\nКладку кирпича можно выполнить своими руками неопытному строителю. Для этого нужно выбрать подходящий вид и технику перевязки. Для первого раза лучше всего использовать наиболее простую технику формирования кирпичной стены.",
+    "author": 1,
+    "date_create": "2024-06-01T07:35:59.567Z",
+    "date_update": "2024-06-01T07:35:59.567Z",
+    "date_publish": "2024-06-01T07:57:47.379Z",
+    "is_published": true,
+    "cats": 1
+  }
+},
+{
+  "model": "blog.posts",
+  "pk": 4,
+  "fields": {
+    "title": "Классификация стен",
+    "slug": "klassifikaciya-sten",
+    "image": "",
+    "content": "Стены могут разделяться по:\r\nназначению\r\nтипу воспринимаемых нагрузок\r\nконструктивному решению\r\nматериалу\r\nспособу возведения\r\nКлассификация стен по назначению:\r\n\r\nнаружные\r\nвнутренние\r\nКлассификация стен по конструктивному решению:\r\n\r\nмонолитные\r\nмелко- и крупноблочные\r\nпанельные и щитовые\r\nкаркасные\r\nсборные\r\nкомбинированные\r\nКлассификация стен по восприятию нагрузок:\r\n\r\nнесущие\r\nсамонесущие\r\nненесущие\r\nКлассификация стен по материалу:\r\n\r\nкаменные\r\nбетонные\r\nдеревянные\r\nиз синтетических материалов\r\nКлассификация стен по способу возведения:\r\n\r\nсборные\r\nмонолитные\r\n\r\nОтличить несущую стену от ненесущей достаточно просто. Несущие стены — воспринимающие кроме нагрузок от собственного веса и ветра также нагрузки от покрытий, перекрытий, кранов и т. п.\r\n\r\nЭта стена в буквальном смысле \"несет\" на себе определенную нагрузку. Если вы мысленно удалите ее из конструкции здания, и такое удаление нарушит целостность здания, значит, стена несущая.\r\n\r\nСамонесущие стены\r\nСамонесущие – воспринимающие нагрузку только от собственного веса стен всех вышележащих этажей зданий, а также ветровую нагрузку.\r\n\r\n \r\n\r\nНенесущие стены\r\nНенесущие (в том числе навесные) — воспринимающие нагрузку только от собственного веса и ветра в пределах одного этажа при высоте этажа не более 6 м (при большей высоте этажа эти стены относятся к самонесущим).\r\n\r\nВ том случае, если определение конкретного вида стены все же вызывает затруднения, лучше всего проконсультироваться у специалиста.",
+    "author": 1,
+    "date_create": "2024-06-01T07:46:54.152Z",
+    "date_update": "2024-06-01T07:46:54.152Z",
+    "date_publish": "2024-06-01T07:46:43Z",
+    "is_published": true,
+    "cats": 3
+  }
+},
+{
+  "model": "blog.posts",
+  "pk": 5,
+  "fields": {
+    "title": "Что-то на умном",
+    "slug": "chto-to-na-umnom",
+    "image": "",
+    "content": "<p class=\"mb-20\">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example,</p>\r\n                                <blockquote class=\"mb-30\"><p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms with righteous indignation and dislike.</p><span>Christine Rios</span></blockquote>\r\n                                <p class=\"mb-20\">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>\r\n                                <p class=\"mb-20\">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>\r\n                                <div class=\"blog-img blog-single-img\">\r\n                                    <div class=\"row\">\r\n                                        <div class=\"col-sm-4\">\r\n                                            <img src=\"https://dclimber.gitlab.io/ru/posts/django-templates/django-templates-explained.jpg\" alt=\"blog-image\">\r\n                                        </div>\r\n                                        <div class=\"col-sm-4\">\r\n                                            <img src=\"https://dclimber.gitlab.io/ru/posts/django-templates/django-templates-explained.jpg\" alt=\"blog-image\">\r\n                                        </div>\r\n                                        <div class=\"col-sm-4\">\r\n                                            <img src=\"https://dclimber.gitlab.io/ru/posts/django-templates/django-templates-explained.jpg\" alt=\"blog-image\">\r\n                                        </div>\r\n                                    </div>\r\n                                </div>\r\n                                <p class=\"mb-20\">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>\r\n                                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.</p>",
+    "author": 1,
+    "date_create": "2024-06-27T11:58:59.737Z",
+    "date_update": "2024-06-27T12:17:31.130Z",
+    "date_publish": "2024-06-27T11:56:22Z",
+    "is_published": true,
+    "cats": 1
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 1,
+  "fields": {
+    "slug": "kladka-kirpicha",
+    "name": "Кладка кирпича"
+  }
+},
+{
+  "model": "blog.category",
+  "pk": 3,
+  "fields": {
+    "slug": "vnutrennie-raboty",
+    "name": "Внутренние работы"
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 1,
+  "fields": {
+    "name": "rfer",
+    "email": "wdw@mail.ru",
+    "body": "ewrwrt",
+    "post": 1,
+    "date_create": "2024-06-20T05:09:50.750Z",
+    "date_update": "2024-06-20T05:09:50.750Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 2,
+  "fields": {
+    "name": "eks",
+    "email": "wdw@mail.ru",
+    "body": "hjghjhgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:28:03.989Z",
+    "date_update": "2024-06-21T08:28:03.991Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 3,
+  "fields": {
+    "name": "eks",
+    "email": "wdw@mail.ru",
+    "body": "hjghjhgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:29:08.806Z",
+    "date_update": "2024-06-21T08:29:08.806Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 4,
+  "fields": {
+    "name": "eks",
+    "email": "cvbgbd@mail.ru",
+    "body": "olol",
+    "post": 2,
+    "date_create": "2024-06-21T08:29:36.062Z",
+    "date_update": "2024-06-21T08:29:36.062Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 5,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "cvbgbd@mail.ru",
+    "body": "fgjfgjfgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:30:21.763Z",
+    "date_update": "2024-06-21T08:30:21.763Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 6,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "cvbgbd@mail.ru",
+    "body": "fgjfgjfgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:31:00.484Z",
+    "date_update": "2024-06-21T08:31:00.484Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 7,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "cvbgbd@mail.ru",
+    "body": "fgjfgjfgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:33:17.052Z",
+    "date_update": "2024-06-21T08:33:17.052Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 8,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "cvbgbd@mail.ru",
+    "body": "fgjfgjfgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:33:26.783Z",
+    "date_update": "2024-06-21T08:33:26.783Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 9,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "cvbgbd@mail.ru",
+    "body": "fgjfgjfgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:38:59.947Z",
+    "date_update": "2024-06-21T08:38:59.947Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 10,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "cvbgbd@mail.ru",
+    "body": "fgjfgjfgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:39:03.129Z",
+    "date_update": "2024-06-21T08:39:03.129Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 11,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "cvbgbd@mail.ru",
+    "body": "fgjfgjfgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:43:09.979Z",
+    "date_update": "2024-06-21T08:43:09.979Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 12,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "cvbgbd@mail.ru",
+    "body": "fgjfgjfgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:46:21.151Z",
+    "date_update": "2024-06-21T08:46:21.151Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 13,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "cvbgbd@mail.ru",
+    "body": "fgjfgjfgj",
+    "post": 2,
+    "date_create": "2024-06-21T08:46:24.168Z",
+    "date_update": "2024-06-21T08:46:24.168Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 14,
+  "fields": {
+    "name": "ауву",
+    "email": "cvbgbd@mail.ru",
+    "body": "1",
+    "post": 2,
+    "date_create": "2024-06-21T08:47:29.011Z",
+    "date_update": "2024-06-21T08:47:29.011Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 15,
+  "fields": {
+    "name": "ауву",
+    "email": "cvbgbd@mail.ru",
+    "body": "1",
+    "post": 2,
+    "date_create": "2024-06-21T08:47:38.697Z",
+    "date_update": "2024-06-21T08:47:38.697Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 16,
+  "fields": {
+    "name": "ауву",
+    "email": "cvbgbd@mail.ru",
+    "body": "1",
+    "post": 2,
+    "date_create": "2024-06-21T08:47:42.417Z",
+    "date_update": "2024-06-21T08:47:42.417Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 17,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "elizaveta.liza.makarova.2018.ma@mail.ru",
+    "body": "апа",
+    "post": 2,
+    "date_create": "2024-06-21T08:49:20.516Z",
+    "date_update": "2024-06-21T08:49:20.516Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 18,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "elizaveta.liza.makarova.2018.ma@mail.ru",
+    "body": "апа",
+    "post": 2,
+    "date_create": "2024-06-21T08:49:36.569Z",
+    "date_update": "2024-06-21T08:49:36.569Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 19,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "elizaveta.liza.makarova.2018.ma@mail.ru",
+    "body": "апа",
+    "post": 2,
+    "date_create": "2024-06-21T08:51:16.340Z",
+    "date_update": "2024-06-21T08:51:16.340Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 20,
+  "fields": {
+    "name": "Карп Элис",
+    "email": "elizaveta.liza.makarova.2018.ma@mail.ru",
+    "body": "апа",
+    "post": 2,
+    "date_create": "2024-06-22T06:28:42.738Z",
+    "date_update": "2024-06-22T06:28:42.738Z",
+    "active": true
+  }
+},
+{
+  "model": "blog.comment",
+  "pk": 21,
+  "fields": {
+    "name": "eks",
+    "email": "cvbgbd@mail.ru",
+    "body": "hkjkhjk",
+    "post": 1,
+    "date_create": "2024-06-26T07:25:51.597Z",
+    "date_update": "2024-06-26T07:25:51.599Z",
+    "active": true
+  }
+},
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$720000$yiyxAhMObQVKDoUAZgmsCx$REpa0Ara/JzqP3AVfsfk/BpfqpcZnDkjEOHZhWhVE5Y=",
+    "last_login": "2024-06-20T04:46:48.796Z",
+    "is_superuser": true,
+    "username": "elis",
+    "first_name": "",
+    "last_name": "",
+    "email": "elis_eva05@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-05-27T05:42:09.633Z",
+    "gender": "not_chosen",
+    "date_birth": null,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Дерево",
+    "slug": "derevo"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 2,
+  "fields": {
+    "name": "Слон",
+    "slug": "slon"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 3,
+  "fields": {
+    "name": "django",
+    "slug": "django"
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 1,
+  "fields": {
+    "tag": 1,
+    "content_type": 6,
+    "object_id": 1
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 2,
+  "fields": {
+    "tag": 2,
+    "content_type": 6,
+    "object_id": 1
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 4,
+  "fields": {
+    "tag": 1,
+    "content_type": 6,
+    "object_id": 2
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 5,
+  "fields": {
+    "tag": 2,
+    "content_type": 6,
+    "object_id": 2
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 6,
+  "fields": {
+    "tag": 2,
+    "content_type": 6,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 7,
+  "fields": {
+    "tag": 2,
+    "content_type": 6,
+    "object_id": 5
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "localhost:8000",
+    "name": "localhost:8000"
+  }
+}
+]
