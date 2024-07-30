@@ -20,6 +20,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from blog.sitemaps import PostSitemap
 from tech_goods_store import settings
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 sitemaps = {
     'posts': PostSitemap,
@@ -37,6 +38,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+    urlpatterns += debug_toolbar_urls()
+    
 admin.site.site_header = 'Администрирование Jantric'
 admin.site.index_title = 'Данные сайта'
