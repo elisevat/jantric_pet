@@ -35,10 +35,22 @@
                             <h2>categories</h2>
                         </div>
                         <ul>
+
+                            {% if not cat_selected %}
+                            <li><a href="{% url "goods:shop" %}" style="color: #f1ac06">Все категории</a></li>
+                            {% else %}
+                            <li><a href="{% url "goods:shop" %}">Все категории</a></li>
+                            {% endif %}
+
                             {% get_categories as categories %}
                             {% for category in categories %}
-                            <li><a href="#">{{ category.name }} </a></li>
+                            {% if cat_selected == category %}
+                            <li><a href="{{ category.get_absolute_url }}" style="color: #f1ac06">{{ category.name }} </a></li>
+                            {% else %}
+                            <li><a href="{{ category.get_absolute_url }}">{{ category.name }} </a></li>
+                            {% endif %}
                             {% endfor %}
+
                         </ul>
                     </div>
                     <div class="single-sidebar">
