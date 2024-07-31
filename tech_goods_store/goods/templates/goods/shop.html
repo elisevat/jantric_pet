@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load goods_tags %}
 
 {% block header %}
     {% include "header.html" %}
@@ -11,8 +12,8 @@
     <div class="container">
         <div class="breadcrumb">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="shop.html">Shop</a></li>
+                <li><a href="{% url "index" %}">Главная</a></li>
+                <li class="active"><a href="{% url "goods:shop" %}">Каталог товаров</a></li>
             </ul>
         </div>
     </div>
@@ -34,6 +35,7 @@
                             <h2>categories</h2>
                         </div>
                         <ul>
+                            {% get_categories as categories %}
                             {% for category in categories %}
                             <li><a href="#">{{ category.name }} </a></li>
                             {% endfor %}
@@ -324,10 +326,12 @@
                                     <div class="single-product">
                                         <!-- Product Image Start -->
                                         <div class="pro-img">
-                                            <a href="{% url 'goods:product' %}">
+                                            <a href="{% url 'goods:product' good.slug %}">
                                                 {% if good.image %}
                                                 <img class="primary-img" src="{{ good.image.url }}" alt="single-product">
                                                 <img class="secondary-img" src="{{ good.image.url }}" alt="single-product">
+                                                {% else %}
+                                                <img class="secondary-img" src="{% static "img/products/1.jpg" %}" alt="single-product">
                                                 {% endif %}
                                             </a>
                                         </div>
@@ -341,8 +345,12 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                             </div>                                
-                                            <h4><a href="product.html">{{ good.name}}</a></h4>
-                                            <p><span class="price">{{ good.price }}</span><del class="prev-price">{{ good.price }}</del></p>
+                                            <h4><a href="{% url 'goods:product' good.slug %}">{{ good.name}}</a></h4>
+                                            {% if good.discount %}
+                                            <p><span class="price">{{ good.price_with_discount }}</span><del class="prev-price">{{ good.price }}</del></p>
+                                            {% else %}
+                                            <p><span class="price">{{ good.price }}</span></p>
+                                            {% endif %}
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
                                                     <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
@@ -367,10 +375,12 @@
                             <div class="single-product">
                                 <!-- Product Image Start -->
                                 <div class="pro-img">
-                                    <a href="product.html">
+                                    <a href={% url 'goods:product' good.slug %}>
                                         {% if good.image %}
                                         <img class="primary-img" src="{{ good.image.url }}" alt="single-product">
                                         <img class="secondary-img" src="{{ good.image.url }}" alt="single-product">
+                                        {% else %}
+                                        <img class="secondary-img" src="{% static "img/products/1.jpg" %}" alt="single-product">
                                         {% endif %}
                                     </a>
                                 </div>
@@ -384,9 +394,15 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>                                
-                                    <h4><a href="product.html">{{ good.name }}</a></h4>
-                                    <p><span class="price">${{ good.price }}</span><del class="prev-price">${{ good.price }}</del></p>
-                                    <p> {{ good.description }} </p>
+                                    <h4><a href="{% url 'goods:product' good.slug %}">{{ good.name }}</a></h4>
+
+                                    {% if good.discount %}
+                                        <p><span class="price">{{ good.price_with_discount }} р.</span><del class="prev-price">{{ good.price }} р.</del></p>
+                                    {% else %}
+                                        <p><span class="price">{{ good.price }}</span></p>
+                                    {% endif %}
+
+                                    <p> {{ good.description|truncatewords_html:30 }} </p>
                                     <div class="pro-actions">
                                         <div class="actions-secondary">
                                             <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
