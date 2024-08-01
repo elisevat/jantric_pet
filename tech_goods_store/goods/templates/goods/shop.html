@@ -414,7 +414,7 @@
                                         <p><span class="price">{{ good.price }}</span></p>
                                     {% endif %}
 
-                                    <p> {{ good.description|truncatewords_html:30 }} </p>
+                                    <p> {{ good.description|truncatechars_html:360 }} </p>
                                     <div class="pro-actions">
                                         <div class="actions-secondary">
                                             <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
@@ -433,11 +433,34 @@
                     <!-- Grid & List Main Area End -->
                 </div>
                 <!--Breadcrumb and Page Show Start -->
+                {% if goods.has_other_pages %}
+                
                 <div class="pagination-box fix">
                     <ul class="blog-pagination ">
-                        <li><a href="#">1</a></li>
-                        <li class="active"><a href="#">2</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+
+                        {% if goods.has_previous %}
+
+                                {% if goods.previous_page_number > 1 %}
+                                    <li><a href="?page={{ goods.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+                                {% endif %}
+
+                            <li><a href="?page={{ goods.previous_page_number }}">{{ goods.previous_page_number }}</a></li>
+
+                        {% endif %}
+                        
+                        <li class="active"><a>{{ goods.number }}</a></li>
+
+                        {% if goods.has_next%}
+                            <li><a href="?page={{ goods.next_page_number }}">{{ goods.next_page_number }}</a></li>
+                        
+
+                            {% if goods.next_page_number < goods.paginator.num_pages %}
+                                <li><a href="?page={{ goods.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+                            {% endif %}
+
+
+                        {% endif %}
+
                     </ul>
                     <div class="toolbar-sorter-footer">
                         <label>show</label>
@@ -449,6 +472,7 @@
                         <span>per page</span>
                     </div>
                 </div>
+                {% endif %}
                 <!--Breadcrumb and Page Show End -->
             </div>
             <!-- product Categorie List End -->
