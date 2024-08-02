@@ -3,7 +3,7 @@
 {% load goods_tags %}
 
 {% block header %}
-    {% include "header.html" %}
+    {% include "goods/header.html" %}
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -316,6 +316,10 @@
                     <div class="main-toolbar-sorter f-right">
                         <div class="toolbar-sorter">
                             <form action="" method="get">
+                                {% if request.GET.product %}
+                                <input type="hidden" name="product" value="{{request.GET.product}}">
+                                {% endif %}
+                                
                                 <label>sort by</label>
                                 <select class="sorter" name="sorter">
                                     <option value="pk" {% if not request.GET.sorter or request.GET.sorter == 'pk' %} selected="selected" {% endif %}>position</option>

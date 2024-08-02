@@ -3,9 +3,17 @@ from django.urls import reverse
 
 # Create your models here.
 
+class NotEmptyManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().exclude(prods=None)
+
+
 class Categories(models.Model):
     name = models.CharField(max_length=150, unique=True, verbose_name='Название')
     slug = models.SlugField(max_length=210, unique=True, blank=True, null=True, verbose_name='URL')
+
+    not_empty = NotEmptyManager()
+    objects = models.Manager()
 
     class Meta:
         verbose_name = "Категорию товаров"

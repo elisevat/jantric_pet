@@ -9,7 +9,7 @@ register = template.Library()
 
 @register.simple_tag()
 def get_categories():
-    return Categories.objects.all()
+    return Categories.not_empty.all()
 
 
 @register.simple_tag(takes_context=True)
