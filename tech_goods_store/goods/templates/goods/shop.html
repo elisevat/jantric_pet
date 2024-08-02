@@ -315,13 +315,15 @@
                     <!-- Toolbar Short Area Start -->
                     <div class="main-toolbar-sorter f-right">
                         <div class="toolbar-sorter">
-                            <label>sort by</label>
-                            <select class="sorter" name="sorter">
-                                <option value="Position" selected="selected">position</option>
-                                <option value="Product Name">Product Name</option>
-                                <option value="Price">Price</option>
-                            </select>
-                            <span><a href="#"><i class="fa fa-arrow-up"></i></a></span>
+                            <form action="" method="get">
+                                <label>sort by</label>
+                                <select class="sorter" name="sorter">
+                                    <option value="pk" {% if not request.GET.sorter or request.GET.sorter == 'pk' %} selected="selected" {% endif %}>position</option>
+                                    <option value="name" {% if request.GET.sorter == 'name' %} selected="selected" {% endif %}>Product Name</option>
+                                    <option value="price" {% if request.GET.sorter == 'price' %} selected="selected" {% endif %}>Price</option>
+                                </select>
+                            <button type="submit"><span><i class="fa fa-arrow-up"></i></span></button>
+                            </form>
                         </div>
                     </div>
                     <!-- Toolbar Short Area End -->
@@ -441,21 +443,21 @@
                         {% if goods.has_previous %}
 
                                 {% if goods.previous_page_number > 1 %}
-                                    <li><a href="?page={{ goods.previous_page_number }}"><i class="fa fa-angle-left"></i></a></li>
+                                    <li><a href="?{% change_params page=goods.previous_page_number %}"><i class="fa fa-angle-left"></i></a></li>
                                 {% endif %}
 
-                            <li><a href="?page={{ goods.previous_page_number }}">{{ goods.previous_page_number }}</a></li>
+                            <li><a href="?{% change_params page=goods.previous_page_number %}">{{ goods.previous_page_number }}</a></li>
 
                         {% endif %}
                         
                         <li class="active"><a>{{ goods.number }}</a></li>
 
                         {% if goods.has_next%}
-                            <li><a href="?page={{ goods.next_page_number }}">{{ goods.next_page_number }}</a></li>
+                            <li><a href="?{% change_params page=goods.next_page_number %}">{{ goods.next_page_number }}</a></li>
                         
 
                             {% if goods.next_page_number < goods.paginator.num_pages %}
-                                <li><a href="?page={{ goods.next_page_number }}"><i class="fa fa-angle-right"></i></a></li>
+                                <li><a href="?{% change_params page=goods.next_page_number %}"><i class="fa fa-angle-right"></i></a></li>
                             {% endif %}
 
 

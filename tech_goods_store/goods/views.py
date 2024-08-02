@@ -6,7 +6,12 @@ from .models import Categories, Products
 
 def shop(request):
 
+    sorter = request.GET.get('sorter', None)
+
     goods = Products.objects.all()
+
+    if sorter and sorter != 'pk':
+        goods = goods.order_by(sorter)
 
     paginator = Paginator(goods, per_page=3)
     num_page = request.GET.get('page', 1)

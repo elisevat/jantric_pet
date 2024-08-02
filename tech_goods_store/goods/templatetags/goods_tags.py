@@ -1,5 +1,6 @@
 
 from django import template
+from django.utils.http import urlencode
 
 from goods.models import Categories
 
@@ -10,7 +11,9 @@ register = template.Library()
 def get_categories():
     return Categories.objects.all()
 
-# @register.inclusion_tag()
-# def show_categories(cat_slug=None):
-#     if cat_slug:
-#         cat = Categories.objects.filter(slug=cat_slug)
+
+@register.simple_tag(takes_context=True)
+def change_params(context, **kwargs):
+    query = context['request'].GET.dict()
+    query.update(kwargs)
+    return urlencode(query)
