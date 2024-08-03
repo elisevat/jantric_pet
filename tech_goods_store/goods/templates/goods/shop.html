@@ -363,7 +363,13 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                             </div>                                
-                                            <h4><a href="{% url 'goods:product' good.slug %}">{{ good.name}}</a></h4>
+                                            <h4><a href="{% url 'goods:product' good.slug %}">{% autoescape off %}
+                                                                                                {% if good.headline %}
+                                                                                                    {{ good.headline }}
+                                                                                                {% else %}
+                                                                                                    {{ good.name}}
+                                                                                                {% endif %}
+                                                                                            {% endautoescape %}</a></h4>
                                             {% if good.discount %}
                                             <p><span class="price">{{ good.price_with_discount }}</span><del class="prev-price">{{ good.price }}</del></p>
                                             {% else %}
@@ -412,7 +418,13 @@
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>                                
-                                    <h4><a href="{% url 'goods:product' good.slug %}">{{ good.name }}</a></h4>
+                                    <h4><a href="{% url 'goods:product' good.slug %}">{% autoescape off %}
+                                                                                        {% if good.headline %}
+                                                                                            {{ good.headline }}
+                                                                                        {% else %}
+                                                                                            {{ good.name}}
+                                                                                        {% endif %}
+                                                                                    {% endautoescape %}</a></h4>
 
                                     {% if good.discount %}
                                         <p><span class="price">{{ good.price_with_discount }} р.</span><del class="prev-price">{{ good.price }} р.</del></p>
@@ -420,7 +432,13 @@
                                         <p><span class="price">{{ good.price }}</span></p>
                                     {% endif %}
 
-                                    <p> {{ good.description|truncatechars_html:360 }} </p>
+                                    <p> {% autoescape off %}
+                                            {% if good.bodyline %}
+                                                {{ good.bodyline|truncatechars_html:720 }} 
+                                            {% else %}
+                                                {{ good.description|truncatechars_html:360 }} 
+                                            {% endif %}
+                                        {% endautoescape %}</p>
                                     <div class="pro-actions">
                                         <div class="actions-secondary">
                                             <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
