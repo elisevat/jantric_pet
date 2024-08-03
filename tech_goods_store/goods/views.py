@@ -11,17 +11,16 @@ def shop(request, category_slug=None):
     query = request.GET.get('product', None)
     sorter = request.GET.get('sorter', 'pk')
 
-    if not category_slug:
+    if not category_slug and not query:
         category = None
         goods = Products.objects.all()
         title = 'Магазин'
 
     elif query:
         category = None
-        if q_search(query):
-            goods = q_search(query)
-        else:
-            goods = Products.objects.all()
+        goods = q_search(query)
+        # else:
+        #     goods = Products.objects.all()
         title = f'Результаты поиска - {query}'
 
     else:
@@ -34,7 +33,7 @@ def shop(request, category_slug=None):
     # if query:
     #     goods = q_search(query)
 
-    if sorter and sorter != 'pk':
+    if sorter and sorter != 'pk' and goods:
         goods = goods.order_by(sorter)
 
     paginator = Paginator(goods, per_page=3)
