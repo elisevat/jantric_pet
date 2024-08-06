@@ -130,6 +130,10 @@
                                         <form method="post" enctype="multipart/form-data">
                                             {% csrf_token %}
                                             {{ form.non_fields_errors }}
+                                            {% if user.photo %}
+                                            <img src="{{ user.photo.url }}" alt="Аватар пользователя" style="max-width: 150px">
+                                            {% endif %}
+
                                             {% for field in form %}
                                             <div class="form-group row">
                                                 <label for="{{ field.id_for_label }}" class="col-lg-3 col-md-4 col-form-label">{{ field.label }}</label>

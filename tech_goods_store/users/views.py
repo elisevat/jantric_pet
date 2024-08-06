@@ -9,7 +9,7 @@ from django.views.generic import CreateView, UpdateView
 
 from blog.utils import menu
 from users.forms import LoginUserForm, RegisterUserForm, AccountUserForm
-
+ 
 
 # Create your views here.
 
@@ -20,7 +20,7 @@ class LoginUser(LoginView):
     extra_context = {}
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return HttpResponseRedirect(reverse_lazy('blog:list_post'))
+            return HttpResponseRedirect(reverse_lazy('index'))
         else:
             return super().get(self, request, *args, **kwargs)
 
@@ -47,8 +47,8 @@ def logout_user(request):
     return HttpResponseRedirect(reverse('users:login'))
 
 
-def account_user(request):
-    return render(request, 'users/user_account.html')
+# def account_user(request):
+#     return render(request, 'users/user_account.html')
 
 # def register_user(request):
 #     if request.method == 'POST':
