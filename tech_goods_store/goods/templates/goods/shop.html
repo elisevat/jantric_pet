@@ -377,9 +377,9 @@
                                             {% endif %}
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
-                                                    <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                    <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to Cart">В корзину</a>
-                                                    <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
+                                                    {% comment %} <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a> {% endcomment %}
+                                                    <a class="add-cart" href="{% url "carts:cart_add" good.slug %}" data-toggle="tooltip" title="Add to Cart">В корзину</a>
+                                                    {% comment %} <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a> {% endcomment %}
                                                 </div>
                                             </div>
                                         </div>
@@ -441,9 +441,9 @@
                                         {% endautoescape %}</p>
                                     <div class="pro-actions">
                                         <div class="actions-secondary">
-                                            <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                            <a class="add-cart" href="cart.html" data-toggle="tooltip" title="Add to cart">В корзину</a>
-                                            <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
+                                            {% comment %} <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a> {% endcomment %}
+                                            <a class="add-cart" href="{% url "carts:cart_add" good.slug %}" data-toggle="tooltip" title="Add to cart">В корзину</a>
+                                            {% comment %} <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a> {% endcomment %}
                                         </div>
                                     </div>
                                 </div>

@@ -1,0 +1,7 @@
+{% extends "carts/includes/included_cart.html" %}
+
+{% block cart_buttom %}
+<div class="cart-actions">
+    <a class="checkout" href="{% url "users:cart" %}">Checkout</a>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% load static %}
+{% load carts_tags %}
+
+<!-- Cart Box Start -->
+{% get_carts_for_user request as carts%}
+
+<li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{ carts.quant_user_cats }}</span></a>
+    <ul class="ht-dropdown main-cart-box">
+        <li>
+            {% for cart in carts %}
+            <div class="single-cart-box">
+                <div class="cart-img">
+                    <a href="#"><img src="{{ cart.product.image.url }}" alt="cart-image"></a>
+                </div>
+                <div class="cart-content">
+                    <h6><a href="{{ cart.product.get_absolute_url }}">{{ cart.product.name|truncatechars_html:40 }}</a></h6>
+                    <span>{{ cart.quantity }} × {{ cart.product.price_with_discount }} р.</span>
+                </div>
+                <a class="del-icone" href="{% url 'carts:cart_remove' 1 %}"><i class="fa fa-window-close-o"></i></a>
+            </div>
+            {% endfor %}
+            
+            <div class="cart-footer fix">
+                <h5>Итог :<span class="f-right">{{ carts.total_price }} р.</span></h5>
+                {% block cart_buttom %}
+                
+                {% endblock %}
+            </div>
+            <!-- Cart Footer Inner End -->
+        </li>
+    </ul>
+</li>
+
+<!-- Cartt Box End -->

@@ -1,6 +1,15 @@
 from uuid import uuid4
 from pytils.translit import slugify
 
+menu = [
+    {'url': 'index', 'name': 'Главная'},
+    {'url': 'goods:shop', 'name': 'Магазин'},
+    {'url': 'blog:list_post', 'name': 'Блог'},
+    {'url': 'users:cart', 'name': 'Корзина'},
+    {'url': 'users:account', 'name': 'Страница'},
+    {'url': 'about', 'name': 'О нас'}
+]
+
 def unique_slugify(instance, slug):
     """
     Генератор уникальных SLUG для моделей, в случае существования такого SLUG.

@@ -46,11 +46,12 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'django.contrib.postgres',
 
-    'blog.apps.BlogConfig',
+    'blog',
     'services',
-    'users.apps.UsersConfig',
+    'users',
     'main',
     'goods',
+    'carts'
     
 ]
 
@@ -79,7 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'tech_goods_store.context_processors.get_menu'
+                'services.context_processors.get_menu'
             ],
         },
     },

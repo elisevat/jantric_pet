@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
-from blog.utils import menu
+ 
 from users.forms import LoginUserForm, RegisterUserForm, AccountUserForm
  
 
@@ -17,12 +17,16 @@ from users.forms import LoginUserForm, RegisterUserForm, AccountUserForm
 class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'users/login.html'
-    extra_context = {}
+    extra_context = {'title': 'Войти в аккаунт'}
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse_lazy('index'))
         else:
             return super().get(self, request, *args, **kwargs)
+
+
+def users_cart(request):
+    return render(request, 'users/user_cart.html')
 
 # def login_user(request):
 #     if request.method == 'POST':

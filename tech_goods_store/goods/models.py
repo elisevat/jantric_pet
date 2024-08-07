@@ -52,5 +52,5 @@ class Products(models.Model):
     def price_with_discount(self):
         if self.discount:
             return round(self.price - self.price * self.discount / 100, 2)
-        return False
+        return self.price
     

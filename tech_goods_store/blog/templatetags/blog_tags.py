@@ -4,13 +4,11 @@ from django.utils.safestring import mark_safe
 from taggit.models import Tag
 
 from blog.models import Category, Posts
-from blog.utils import menu
+
 
 register = template.Library()
 
-@register.simple_tag
-def get_menu():
-    return menu
+
 
 @register.inclusion_tag('blog/show_sidebar.html')
 def show_sidebar(cat_selected=0, tags_selected=0, count=4):

@@ -32,6 +32,7 @@ urlpatterns = [
     path('shop/', include('goods.urls', namespace='goods')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('user/', include('users.urls', namespace='users')),
+    path('cart/', include('carts.urls', namespace='carts')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap')
 ]

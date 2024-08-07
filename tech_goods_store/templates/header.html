@@ -91,39 +91,16 @@
                                         </ul>
                                     </li>
                                     {% endif %}
-                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">0</span></a>
-                                        <ul class="ht-dropdown main-cart-box">
-                                            <li>
-                                                <!-- Cart Box Start -->
-                                                <div class="single-cart-box">
-                                                    <div class="cart-img">
-                                                        <a href="#"><img src="{% static 'img/menu/1.jpg' %}" alt="cart-image"></a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h6><a href="#">{{ product.name }}</a></h6>
-                                                        <span>{{ product.total }}</span>
-                                                    </div>
-                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
-                                                </div>
-                                                <!-- Cart Box End -->
-                                                <!-- Cart Box Start -->
-
-                                                <!-- Cart Box End -->
-                                                <!-- Cart Footer Inner Start -->
-                                                <div class="cart-footer fix">
-                                                    <h5>Сумма: <span class="f-right">{{ total_prods_sum }}</span></h5>
-                                                    <div class="cart-actions">
-                                                        <a class="checkout" href="checkout.html">Заказать</a>
-                                                    </div>
-                                                </div>
-                                                <!-- Cart Footer Inner End -->
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    
+                                    {% comment %} <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li> {% endcomment %}
+                                    <!-- Cart Box Start -->
+                                    {% block cart_box %}
+                                    
+                                    {% endblock cart_box %}
+                                    <!-- Cart Box End -->
                                 </ul>
                             </div>
-                        </div>
+                            </div>
                         <!-- Cartt Box End -->
                         <div class="col-sm-12 d-lg-none">
                             <div class="mobile-menu">

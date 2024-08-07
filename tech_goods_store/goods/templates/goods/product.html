@@ -87,16 +87,16 @@
                         <div class="box-quantity">
                             <form action="#">
                                 <input class="number" id="numeric" type="number" min="1" value="1">
-                                <a class="add-cart" href="cart.html">add to cart</a>
+                                <a class="add-cart" href="{% url "carts:cart_add" product.slug %}">add to cart</a>
                             </form>
                         </div>
-                        <div class="product-link">
+                        {% comment %} <div class="product-link">
                             <ul class="list-inline">
                                 <li><a href="wishlist.html">Add to Wish List</a></li>
                                 <li><a href="compare.html">Add to compare</a></li>
                                 <li><a href="#">Email</a></li>
                             </ul>
-                        </div>
+                        </div> {% endcomment %}
                         <p class="ptb-20">{{ product.description|truncatewords_html:30|linebreaks }}</p>
                     </div>
                 </div>

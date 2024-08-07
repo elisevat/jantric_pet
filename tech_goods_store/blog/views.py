@@ -11,7 +11,7 @@ from django.utils.text import slugify
 from django.views.generic import ListView, DetailView
 from taggit.models import Tag
 
-from blog.utils import menu
+ 
 from blog.models import Posts, Comment
 from .forms import EmailPostForm, AddCommentForm, SearchForm, AddPostForm
 
@@ -26,7 +26,6 @@ class PostsListHome(ListView):
     context_object_name = 'posts'
     extra_context = {
         'title': 'Блог Jantric',
-        'menu': menu,
         'cat_selected': 0,
         'tag': 0,
         'form_search': SearchForm,
@@ -57,7 +56,6 @@ def post_share(request, post_slug):
         form = EmailPostForm()
     data = {
         'title': 'Блог Jantric',
-        'menu': menu,
         'post': post,
         'form': form,
         'sent': sent
@@ -74,7 +72,6 @@ class PostDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['title'] = context['post'].title
         # self.kwarg = context.view.kwargs
-        context['menu'] = menu
         context['cat_selected'] = context['post'].cats.slug if context['post'].cats else 0
         context['comments'] = Comment.objects.filter(active=Comment.Status.PUBLISH, post=context['post'])
         context['form_search'] = SearchForm()
@@ -111,7 +108,6 @@ class CatShowList(ListView):
         context = super().get_context_data(object_list=object_list, **kwargs)
         cat = context['posts'][0].cats
         context['title'] = cat.name
-        context['menu'] = menu
         context['cat_selected'] = cat.slug
         context['form_search'] = SearchForm
         return context
@@ -151,7 +147,6 @@ class TagShowList(ListView):
         context = super().get_context_data(object_list=object_list, **kwargs)
         context['title'] = self.tag.name
         context['tag'] = self.tag
-        context['menu'] = menu
         context['tags_selected'] = self.tag.slug
         context['form_search'] = SearchForm
         return context
@@ -178,7 +173,6 @@ def posts_search(request):
 
     data = {
         'title': 'Поиск',
-        'menu': menu,
         'posts': results,
         'form_search': form,
         'cat_selected': 0,
@@ -198,7 +192,6 @@ def add_comment(request, post_slug):
         comment.post = post
         comment.save()
     data = {
-        'menu': menu,
         'post': post,
         'form': form,
         'comment': comment
