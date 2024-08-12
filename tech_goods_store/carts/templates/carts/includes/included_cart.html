@@ -4,7 +4,7 @@
 <!-- Cart Box Start -->
 {% get_carts_for_user request as carts%}
 
-<li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{{ carts.quant_user_cats }}</span></a>
+<li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{% if carts %}{{ carts.quant_user_cats }}{% else %}0{% endif %}</span></a>
     <ul class="ht-dropdown main-cart-box">
         <li>
             {% for cart in carts %}
@@ -16,16 +16,20 @@
                     <h6><a href="{{ cart.product.get_absolute_url }}">{{ cart.product.name|truncatechars_html:40 }}</a></h6>
                     <span>{{ cart.quantity }} × {{ cart.product.price_with_discount }} р.</span>
                 </div>
-                <a class="del-icone" href="{% url 'carts:cart_remove' 1 %}"><i class="fa fa-window-close-o"></i></a>
+                <a class="del-icone" href="{% url "carts:cart_remove" cart.pk %}"><i class="fa fa-window-close-o"></i></a>
             </div>
+            {% empty %}
+            <h6> Корзина пуста. <a href="{% url "goods:shop" %}">В каталог</a></h6>
+
             {% endfor %}
-            
+            {% if carts %}
             <div class="cart-footer fix">
                 <h5>Итог :<span class="f-right">{{ carts.total_price }} р.</span></h5>
                 {% block cart_buttom %}
                 
                 {% endblock %}
             </div>
+            {% endif %}
             <!-- Cart Footer Inner End -->
         </li>
     </ul>

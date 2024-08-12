@@ -32,6 +32,7 @@
             <h2 class="text-capitalize sub-heading">cart</h2>
             <div class="row">
                 <div class="col-md-12">
+                    {% if carts %}
                     <!-- Form Start -->
                     <form action="#">
                         <!-- Table Content Start -->
@@ -57,7 +58,7 @@
                                         <td class="product-price"><span class="amount">{{ cart.product.price_with_discount }} р.</span></td>
                                         <td class="product-quantity"><input type="number" name={{cart.pk}} value="{{ cart.quantity }}" /></td>
                                         <td class="product-subtotal">{{ cart.product_total_price }} р.</td>
-                                        <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                        <td class="product-remove"> <a href="{% url "carts:cart_remove" cart.pk %}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                     </tr>
                                     {% endfor %}
                                     {% comment %} <tr>
@@ -111,6 +112,9 @@
                         </div>
                         <!-- Row End -->
                     </form>
+                    {% else %}
+                    <h6> Корзина пуста. <a href="{% url "goods:shop" %}">В каталог</a></h6>
+                    {% endif %}
                     <!-- Form End -->
                 </div>
             </div>
