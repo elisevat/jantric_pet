@@ -75,32 +75,13 @@
                         <!-- Cartt Box Start -->
                         <div class="col-lg-3 col-sm-7 col-7">
                             <div class="cart-box text-right">
-                                <ul>
-                                    {% if not user.is_authenticated %}
-                                    <li><a href="{% url 'users:login' %}"><i class="fa fa-cog"></i></a>
-                                        <ul class="ht-dropdown">
-                                            <li><a href="{% url 'users:login' %}">Вход</a></li>
-                                            <li><a href="{% url 'users:login' %}">Регистрация</a></li>
-                                        </ul>
-                                    </li>
-                                    {% else %}
-                                    <li><a href="{% url 'users:account' %}"><i class="fa fa-cog"></i></a>
-                                        <ul class="ht-dropdown">
-                                            <li><a href="{% url 'users:account' %}">Аккаунт</a></li>
-                                            <li><a href="{% url 'users:logout' %}">Выход</a></li>
-                                        </ul>
-                                    </li>
-                                    {% endif %}
-                                    
-                                    {% comment %} <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li> {% endcomment %}
                                     <!-- Cart Box Start -->
                                     {% block cart_box %}
                                     
                                     {% endblock cart_box %}
                                     <!-- Cart Box End -->
-                                </ul>
                             </div>
-                            </div>
+                        </div>        
                         <!-- Cartt Box End -->
                         <div class="col-sm-12 d-lg-none">
                             <div class="mobile-menu">

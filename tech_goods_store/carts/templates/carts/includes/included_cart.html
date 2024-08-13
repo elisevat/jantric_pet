@@ -4,35 +4,57 @@
 <!-- Cart Box Start -->
 {% get_carts_for_user request as carts%}
 
-<li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{% if carts %}{{ carts.quant_user_cats }}{% else %}0{% endif %}</span></a>
-    <ul class="ht-dropdown main-cart-box">
-        <li>
-            {% for cart in carts %}
-            <div class="single-cart-box">
-                <div class="cart-img">
-                    <a href="#"><img src="{{ cart.product.image.url }}" alt="cart-image"></a>
-                </div>
-                <div class="cart-content">
-                    <h6><a href="{{ cart.product.get_absolute_url }}">{{ cart.product.name|truncatechars_html:40 }}</a></h6>
-                    <span>{{ cart.quantity }} × {{ cart.product.price_with_discount }} р.</span>
-                </div>
-                <a class="del-icone" href="{% url "carts:cart_remove" cart.pk %}"><i class="fa fa-window-close-o"></i></a>
-            </div>
-            {% empty %}
-            <h6> Корзина пуста. <a href="{% url "goods:shop" %}">В каталог</a></h6>
 
-            {% endfor %}
-            {% if carts %}
-            <div class="cart-footer fix">
-                <h5>Итог :<span class="f-right">{{ carts.total_price }} р.</span></h5>
-                {% block cart_buttom %}
-                
-                {% endblock %}
-            </div>
+    
+        <ul>
+            {% if not user.is_authenticated %}
+            <li><a href="{% url 'users:login' %}"><i class="fa fa-cog"></i></a>
+                <ul class="ht-dropdown">
+                    <li><a href="{% url 'users:login' %}">Вход</a></li>
+                    <li><a href="{% url 'users:login' %}">Регистрация</a></li>
+                </ul>
+            </li>
+            {% else %}
+            <li><a href="{% url 'users:account' %}"><i class="fa fa-cog"></i></a>
+                <ul class="ht-dropdown">
+                    <li><a href="{% url 'users:account' %}">Аккаунт</a></li>
+                    <li><a href="{% url 'users:logout' %}">Выход</a></li>
+                </ul>
+            </li>
             {% endif %}
-            <!-- Cart Footer Inner End -->
-        </li>
-    </ul>
-</li>
+            
+            {% comment %} <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li> {% endcomment %}
 
+            <li id="index-cart"><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{% if carts %}{{ carts.quant_user_cats }}{% else %}0{% endif %}</span></a>
+                <ul class="ht-dropdown main-cart-box">
+                    <li>
+                        {% for cart in carts %}
+                        <div class="single-cart-box">
+                            <div class="cart-img">
+                                <a href="#"><img src="{{ cart.product.image.url }}" alt="cart-image"></a>
+                            </div>
+                            <div class="cart-content">
+                                <h6><a href="{{ cart.product.get_absolute_url }}">{{ cart.product.name|truncatechars_html:40 }}</a></h6>
+                                <span>{{ cart.quantity }} × {{ cart.product.price_with_discount }} р.</span>
+                            </div>
+                            <a class="del-icone" href="{% url "carts:cart_remove" cart.pk %}"><i class="fa fa-window-close-o"></i></a>
+                        </div>
+                        {% empty %}
+                        <h6> Корзина пуста. <a href="{% url "goods:shop" %}">В каталог</a></h6>
+
+                        {% endfor %}
+                        {% if carts %}
+                        <div class="cart-footer fix">
+                            <h5>Итог :<span class="f-right">{{ carts.total_price }} р.</span></h5>
+                            {% block cart_buttom %}
+                            
+                            {% endblock %}
+                        </div>
+                        {% endif %}
+                        <!-- Cart Footer Inner End -->
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 <!-- Cartt Box End -->

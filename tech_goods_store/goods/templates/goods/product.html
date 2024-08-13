@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}
-    {% include "header.html" %}
+    {% include "goods/header.html" %}
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -87,7 +87,10 @@
                         <div class="box-quantity">
                             <form action="#">
                                 <input class="number" id="numeric" type="number" min="1" value="1">
-                                <a class="add-cart" href="{% url "carts:cart_add" product.slug %}">add to cart</a>
+                                <a class="add-cart" href="{% url "carts:cart_add" %}" data-product-id="{{ product.id }}">
+                                    {% csrf_token %}
+                                    add to cart
+                                </a>
                             </form>
                         </div>
                         {% comment %} <div class="product-link">

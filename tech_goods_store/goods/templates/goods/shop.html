@@ -378,7 +378,10 @@
                                             <div class="pro-actions">
                                                 <div class="actions-secondary">
                                                     {% comment %} <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a> {% endcomment %}
-                                                    <a class="add-cart" href="{% url "carts:cart_add" good.slug %}" data-toggle="tooltip" title="Add to Cart">В корзину</a>
+                                                    <a class="add-cart" href="{% url "carts:cart_add" %}" data-product-id="{{ good.id }}" data-toggle="tooltip" title="Add to Cart">
+                                                        {% csrf_token %}
+                                                        В корзину
+                                                    </a>
                                                     {% comment %} <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a> {% endcomment %}
                                                 </div>
                                             </div>
@@ -442,7 +445,7 @@
                                     <div class="pro-actions">
                                         <div class="actions-secondary">
                                             {% comment %} <a href="wishlist.html" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a> {% endcomment %}
-                                            <a class="add-cart" href="{% url "carts:cart_add" good.slug %}" data-toggle="tooltip" title="Add to cart">В корзину</a>
+                                            <a class="add-cart" href="{% url "carts:cart_add" %}" data-product-id="{{ good.id }}" data-toggle="tooltip" title="Add to cart"">{% csrf_token %}В корзину</a>
                                             {% comment %} <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a> {% endcomment %}
                                         </div>
                                     </div>
