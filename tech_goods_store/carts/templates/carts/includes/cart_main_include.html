@@ -4,7 +4,8 @@
         <div class="col-md-12">
             {% if carts %}
             <!-- Form Start -->
-            <form action="#">
+            <form action="{% url "carts:cart_change" %}" method="POST">
+                {% csrf_token %}
                 <!-- Table Content Start -->
                 <div class="table-content table-responsive mb-50">
                     <table>

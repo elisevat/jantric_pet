@@ -36,8 +36,17 @@ def cart_add(request):
     return JsonResponse(response_data)
 
 
-def cart_change(request, product_slug):
-    ...
+def cart_change(request):
+    for key, value in request.POST.items():
+        if key.isdigit():
+            cart = Cart.objects.get(pk=key)
+            if int(value) > 1:
+                cart.quantity = value
+                cart.save()
+            else:
+                cart.quantity = 1
+                cart.save()
+    return redirect(request.META['HTTP_REFERER'])
 
 def cart_remove(request):
     cart_id = request.POST.get('cart_id')
