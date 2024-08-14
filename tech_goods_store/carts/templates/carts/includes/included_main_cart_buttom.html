@@ -1,0 +1,33 @@
+{% load static %}
+{% load carts_tags %}
+
+<!-- Cart Box Start -->
+{% get_carts_for_user request as carts%}
+
+
+    
+        <ul>
+            {% if not user.is_authenticated %}
+            <li><a href="{% url 'users:login' %}"><i class="fa fa-cog"></i></a>
+                <ul class="ht-dropdown">
+                    <li><a href="{% url 'users:login' %}">Вход</a></li>
+                    <li><a href="{% url 'users:login' %}">Регистрация</a></li>
+                </ul>
+            </li>
+            {% else %}
+            <li><a href="{% url 'users:account' %}"><i class="fa fa-cog"></i></a>
+                <ul class="ht-dropdown">
+                    <li><a href="{% url 'users:account' %}">Аккаунт</a></li>
+                    <li><a href="{% url 'users:logout' %}">Выход</a></li>
+                </ul>
+            </li>
+            {% endif %}
+            
+            {% comment %} <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li> {% endcomment %}
+
+            <li><a href="#" style="color: #f1ac06"><i class="fa fa-shopping-basket"></i></a>
+                
+            </li>
+        </ul>
+    </div>
+<!-- Cartt Box End -->

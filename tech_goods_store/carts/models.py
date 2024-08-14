@@ -32,6 +32,7 @@ class Cart(models.Model):
     class Meta:
         verbose_name = 'Корзина'
         verbose_name_plural = 'Корзина'
+        ordering = ['-created_timestamp']
 
     def product_total_price(self):
         return round(self.product.price_with_discount() * self.quantity, 2)

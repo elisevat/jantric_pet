@@ -25,10 +25,11 @@
             
             {% comment %} <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li> {% endcomment %}
 
-            <li id="index-cart"><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{% if carts %}{{ carts.quant_user_cats }}{% else %}0{% endif %}</span></a>
+            <li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">{% if carts %}{{ carts.quant_user_cats }}{% else %}0{% endif %}</span></a>
                 <ul class="ht-dropdown main-cart-box">
                     <li>
                         {% for cart in carts %}
+                        {% if forloop.counter < 4 %}
                         <div class="single-cart-box">
                             <div class="cart-img">
                                 <a href="#"><img src="{{ cart.product.image.url }}" alt="cart-image"></a>
@@ -37,12 +38,20 @@
                                 <h6><a href="{{ cart.product.get_absolute_url }}">{{ cart.product.name|truncatechars_html:40 }}</a></h6>
                                 <span>{{ cart.quantity }} × {{ cart.product.price_with_discount }} р.</span>
                             </div>
-                            <a class="del-icone" href="{% url "carts:cart_remove" cart.pk %}"><i class="fa fa-window-close-o"></i></a>
+                            <a class="del-icone cart-remove" href="{% url "carts:cart_remove"%}" data-cart-id="{{ cart.pk }}">{% csrf_token %}<i class="fa fa-window-close-o"></i></a>
                         </div>
+                        {% elif forloop.counter == 4 %}
+                        <div class="single-cart-box">
+                            <div class="cart-content">
+                                <h3><a href="#">............................</a></h3>
+                            </div>
+                        </div>
+                        {% endif %}
+
                         {% empty %}
                         <h6> Корзина пуста. <a href="{% url "goods:shop" %}">В каталог</a></h6>
-
                         {% endfor %}
+
                         {% if carts %}
                         <div class="cart-footer fix">
                             <h5>Итог :<span class="f-right">{{ carts.total_price }} р.</span></h5>

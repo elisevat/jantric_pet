@@ -32,15 +32,36 @@ def cart_add(request):
         'message': 'Товар добавлен в корзину',
         'cart_items_html': cart_items_html
     }
+
     return JsonResponse(response_data)
 
 
 def cart_change(request, product_slug):
     ...
 
-def cart_remove(request, cart_id):
+def cart_remove(request):
+    cart_id = request.POST.get('cart_id')
+    is_main = request.POST.get('is_main')
+    print(request.POST, cart_id, '\n', is_main)
+
     cart = Cart.objects.get(pk=cart_id)
     if cart:
         cart.delete()
 
-    return redirect(request.META['HTTP_REFERER'])
+    user_cart = get_user_carts(request)
+    
+    cart_main_items_html = render_to_string(
+        'carts/includes/cart_main_include.html', {'carts': user_cart}, request=request)
+
+    cart_items_html = render_to_string(
+        'carts/includes/included_cart_with_buttom.html', {'carts': user_cart}, request=request)
+    
+    
+    
+    response_data = {
+        'message': 'Товар удален из корзины',
+        'cart_items_html': cart_items_html,
+        'cart_main_items_html': cart_main_items_html
+    }
+    
+    return JsonResponse(response_data)
