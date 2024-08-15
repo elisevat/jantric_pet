@@ -17,6 +17,10 @@ $(document).ready(function () {
 
         // Из атрибута href берем ссылку на контроллер django
         var add_to_cart_url = $(this).attr("href");
+        // Ищем ближайшеий input с количеством 
+        var $input = $(this).closest('.input-group').find('.number');
+        // Берем значение количества товара
+        var currentValue = parseInt($input.val());
 
         // делаем post запрос через ajax не перезагружая страницу
         $.ajax({
@@ -24,7 +28,9 @@ $(document).ready(function () {
             url: add_to_cart_url,
             data: {
                 product_id: product_id,
+                currentValue: currentValue,
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+                
             },
             success: function (data) {
                 // Сообщение

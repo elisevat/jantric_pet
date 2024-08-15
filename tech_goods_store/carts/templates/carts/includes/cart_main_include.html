@@ -27,7 +27,7 @@
                                 </td>
                                 <td class="product-name"><a href="{{ cart.product.get_absolute_url }}">{{ cart.product.name }}</a></td>
                                 <td class="product-price"><span class="amount">{{ cart.product.price_with_discount }} р.</span></td>
-                                <td class="product-quantity"><input type="number" name={{cart.pk}} value="{{ cart.quantity }}" /></td>
+                                <td class="product-quantity"><input type="number" min="1" name={{cart.pk}} value="{{ cart.quantity }}" /></td>
                                 <td class="product-subtotal">{{ cart.product_total_price }} р.</td>
                                 <td class="product-remove"> <a href="{% url "carts:cart_remove" %}" class="remove-cart" data-cart-id="{{ cart.pk }}">{% csrf_token %}<i class="fa fa-times" aria-hidden="true"></i></a></td>
                             </tr>

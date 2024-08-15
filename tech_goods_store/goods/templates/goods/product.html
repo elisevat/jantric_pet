@@ -86,7 +86,7 @@
                         </div>
                         <div class="box-quantity">
                             <form action="#">
-                                <input class="number" id="numeric" type="number" min="1" value="1">
+                                {% comment %} <input class="number" id="numeric" type="number" min="1" value="1" name="quant"> {% endcomment %}
                                 <a class="add-cart" href="{% url "carts:cart_add" %}" data-product-id="{{ product.id }}">
                                     {% csrf_token %}
                                     add to cart

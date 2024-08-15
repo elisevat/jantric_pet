@@ -2,12 +2,14 @@ from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordChangeDoneView
+from django.db.models import F
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
  
+from carts.models import Cart
 from users.forms import LoginUserForm, RegisterUserForm, AccountUserForm
  
 
@@ -15,14 +17,40 @@ from users.forms import LoginUserForm, RegisterUserForm, AccountUserForm
 
 
 class LoginUser(LoginView):
+
     form_class = LoginUserForm
     template_name = 'users/login.html'
     extra_context = {'title': 'Войти в аккаунт'}
+
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse_lazy('index'))
         else:
             return super().get(self, request, *args, **kwargs)
+        
+    def post(self, request, *args, **kwargs):
+        session_key = request.session.session_key
+        form = self.get_form()
+        if form.is_valid():
+            user = form.get_user()
+            if session_key:
+                carts_session = Cart.objects.filter(session_key=session_key)
+                carts_user = Cart.objects.filter(user=user)
+                for cart in carts_session:
+                    if carts_user.filter(product=cart.product).exists():
+                        cart_user = carts_user.get(product=cart.product)
+                        cart_user.quantity = F("quantity") + cart.quantity
+                        cart_user.session_key = cart.session_key
+                        cart_user.save()
+                        cart.delete()
+                    else:
+                        cart.user = user
+                        cart.save()
+                        
+
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
 
 
 def users_cart(request):
