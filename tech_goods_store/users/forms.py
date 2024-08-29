@@ -27,8 +27,16 @@ class RegisterUserForm(UserCreationForm):
                                 widget=forms.TextInput(attrs={'placeholder': 'Фамилия',
                                                              'class': 'form-control'}))
 
+    middle_name = forms.CharField(label='Фамилия',
+                                  required=False,
+                                  widget=forms.TextInput(attrs={'placeholder': 'Фамилия',
+                                                             'class': 'form-control'}))
+    
     email = forms.EmailField(label='E-mail',
                             widget=forms.EmailInput(attrs={'placeholder': 'E-mail',
+                                                           'class': 'form-control'}))
+    phone_number = forms.CharField(label='Номер телефона',
+                            widget=forms.TextInput(attrs={'placeholder': 'Номер телефона',
                                                            'class': 'form-control'}))
     username = forms.CharField(label='Логин',
                                 widget=forms.TextInput(attrs={'placeholder': 'Логин',
