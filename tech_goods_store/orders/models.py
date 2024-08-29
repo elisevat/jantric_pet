@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from goods.models import Products
 from users.models import User
@@ -36,6 +37,10 @@ class Order(models.Model):
 
     def __str__(self) -> str:
         return f'Заказ № {self.pk} | Покупатель: { self.last_name } { self.first_name}  {self.middle_name}'
+
+    def get_absolute_url(self):
+        return reverse("orders:show_order", kwargs={"pk": self.pk})
+    
     
 
 class OrderItem(models.Model):

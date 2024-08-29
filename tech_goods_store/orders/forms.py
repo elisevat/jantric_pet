@@ -1,3 +1,4 @@
+import re
 from django import forms
 from django.contrib.auth import get_user_model
 
@@ -51,7 +52,14 @@ class CreateOrderForm(forms.Form):
         widget=forms.CheckboxInput(),
         required=False,
     )
-    
+
+    def clean_phone_number(self):
+        pattern = re.compile(r'^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$')
+        if not pattern.match(self.cleaned_data['phone_number']):
+            raise forms.ValidationError('Введите корректный номер телефона. Пример: +7(999)-99-99')
+        return self.cleaned_data['phone_number']
+
+
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")

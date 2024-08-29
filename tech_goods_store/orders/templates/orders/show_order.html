@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% load carts_tags %}
+
+
+
+{% block header %}
+    {% include "header_cart.html" %}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-area pt-60 pb-55 pt-sm-30 pb-sm-20">
+        <div class="container">
+            <div class="breadcrumb">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="cart.html">Cart</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Container End -->
+    </div>
+    <!-- Breadcrumb End -->
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2 class="text-capitalize sub-heading">Заказ №{{order.pk}}     Статус:{{order.status}}     Заказчик:{{order.last_name}} {{order.first_name}} {{order.middle_name}}</h2>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Form Start -->
+            {% comment %} < action="{% url "carts:cart_change" %}" method="POST"> {% endcomment %}
+                {% comment %} {% csrf_token %} {% endcomment %}
+                <!-- Table Content Start -->
+                <div class="table-content table-responsive mb-50">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail">Image</th>
+                                <th class="product-name">Product</th>
+                                <th class="product-price">Price</th>
+                                <th class="product-quantity">Quantity</th>
+                                <th class="product-subtotal">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order_item in order_items %}
+                            <tr>
+                                <td class="product-thumbnail">
+                                    <a href="{{ order_item.product.get_absolute_url }}"><img src="{{ order_item.product.image.url }}" alt="cart-image" /></a>
+                                </td>
+                                <td class="product-name"><a href="{{ order_item.product.get_absolute_url }}">{{ order_item.name }}</a></td>
+                                <td class="product-price"><span class="amount">{{ order_item.price }} р.</span></td>
+                                <td class="product-quantity">{{ order_item.quantity }}</td>
+                                <td class="product-subtotal">{{ order_item.total_product_price }} р.</td>
+                            </tr>
+                            {% endfor %}
+                            {% comment %} <tr>
+                                <td class="product-thumbnail">
+                                    <a href="#"><img src="img/products/2.jpg" alt="cart-image" /></a>
+                                </td>
+                                <td class="product-name"><a href="#">Products Name Here</a></td>
+                                <td class="product-price"><span class="amount">£50.00</span></td>
+                                <td class="product-quantity"><input type="number" value="1" /></td>
+                                <td class="product-subtotal">£50.00</td>
+                                <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                            </tr> {% endcomment %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Table Content Start -->
+                <div class="row">
+                    <!-- Cart Button Start -->
+                    <div class="col-lg-8 col-md-7">
+                        <div class="buttons-cart">
+                            <a href="{% url 'goods:shop'%}">Continue Shopping</a>
+                        </div>
+                    </div>
+                    <!-- Cart Button Start -->
+                    <!-- Cart Totals Start -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="cart_totals">
+                            <h2>Cart Totals</h2>
+                            <br />
+                            <table>
+                                <tbody>
+                                    {% comment %} <tr class="cart-subtotal">
+                                        <th>Subtotal</th>
+                                        <td><span class="amount">$215.00</span></td>
+                                    </tr> {% endcomment %}
+                                    <tr class="order-total">
+                                        <th>Total</th>
+                                        <td>
+                                            <strong><span class="amount">{{ order_items.total_price }} р.</span></strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Cart Totals End -->
+                </div>
+                <!-- Row End -->
+            <!-- Form End -->
+        </div>
+    </div>
+        <!-- Row End -->
+</div>
+
+{% endblock content %}

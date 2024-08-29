@@ -1,15 +1,30 @@
-
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db import transaction
 from django.forms import ValidationError
-from django.shortcuts import redirect, render
+from django.http import Http404, HttpResponseBadRequest, HttpResponseForbidden, HttpResponseNotAllowed
+from django.shortcuts import get_object_or_404, redirect, render
+from django.template import context
 
 from carts.utils import get_user_carts
 from orders.forms import CreateOrderForm
 from orders.models import Order, OrderItem
+from orders.utils import get_orders
 from users.models import User
 
 # Create your views here.
+@login_required
+def show_order(request, pk):
+    order = get_object_or_404(Order, pk=pk)
+    if order.user != request.user:
+        return HttpResponseForbidden()
+    order_items = OrderItem.objects.filter(order=order).select_related('order', 'product')
+    context = {
+        'order': order,
+        'order_items': order_items
+    }
+    return render(request, 'orders/show_order.html', context=context)
+
 
 def create_order(request):
     user = request.user if request.user.is_authenticated else None

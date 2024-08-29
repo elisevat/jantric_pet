@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordChangeDoneView
-from django.db.models import F
+from django.db.models import F, Prefetch
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
@@ -10,6 +10,7 @@ from django.views.generic import CreateView, UpdateView
 
  
 from carts.models import Cart
+from orders.utils import get_orders
 from users.forms import LoginUserForm, RegisterUserForm, AccountUserForm
  
 
@@ -106,6 +107,7 @@ class RegisterUser(CreateView):
             return super().get(self, request, *args, **kwargs)
 
 
+
 class AccountUser(LoginRequiredMixin, UpdateView):
     model = get_user_model()
     form_class = AccountUserForm
@@ -115,6 +117,11 @@ class AccountUser(LoginRequiredMixin, UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+    
+    def get_context_data(self, **kwargs) -> dict[str, any]:
+        context = super().get_context_data(**kwargs)
+        context['orders'] = get_orders(self.request)
+        return context
 
 
 class UserPasswordChange(PasswordChangeView):

@@ -70,13 +70,17 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                {% for order in orders %}
                                                 <tr>
-                                                    <td>1</td>
-                                                    <td>May 10, 2018</td>
-                                                    <td>Processing</td>
-                                                    <td>$25.00 for 1 item </td>
-                                                    <td><a class="view" href="cart.html">view</a></td>
+                                                    
+                                                    <td>{{ order.pk }}</td>
+                                                    <td>{{ order.created_timestamp }}</td>
+                                                    <td>{{ order.status }}</td>
+                                                    <td>{{ order.orderitem_set.total_price }} for {{ order.orderitem_set.total_quantity }} item </td>
+                                                    <td><a class="view" href="{{ order.get_absolute_url}}">view</a></td>
+                                                    
                                                 </tr>
+                                                {% endfor %}
                                                 <tr>
                                                     <td>2</td>
                                                     <td>May 10, 2018</td>
