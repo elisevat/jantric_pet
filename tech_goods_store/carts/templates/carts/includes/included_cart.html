@@ -18,7 +18,11 @@
             <li><a href="{% url 'users:account' %}"><i class="fa fa-cog"></i></a>
                 <ul class="ht-dropdown">
                     <li><a href="{% url 'users:account' %}">Аккаунт</a></li>
-                    <li><a href="{% url 'users:logout' %}">Выход</a></li>
+                
+                    <li>
+                        <form action="{% url 'users:logout' %}" method="post">
+                            {% csrf_token %}
+                        <input type="submit" value="Выход"/></form></li>
                 </ul>
             </li>
             {% endif %}

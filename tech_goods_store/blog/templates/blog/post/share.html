@@ -33,6 +33,8 @@
             {% csrf_token %}
             <div class="address-wrapper">
 
+            <input type="hidden" name="sent" value="True">
+
             {% for f in form %}
 
 

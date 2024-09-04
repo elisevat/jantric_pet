@@ -3,7 +3,7 @@
 {% block search %}
 <div class="col-lg-4 col-md-6 ml-auto mr-auto">
                             <div class="search-box-view">
-                                <form action="{% url 'blog:posts_search' %}">
+                                <form action="{% url 'blog:list_post' %}">
                                     {{ form_search.query }}
                                     <button type="submit" class="submit"></button>
                                 </form>
