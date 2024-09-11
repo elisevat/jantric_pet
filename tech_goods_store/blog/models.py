@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.shortcuts import reverse
 from taggit.managers import TaggableManager
 
-from services.utils import unique_slugify
+from common.utils import unique_slugify
 from users.models import User
 from django.db.models import Count
 

@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordChangeDoneView
+from django.core.cache import cache
 from django.db.models import F, Prefetch
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -12,6 +13,7 @@ from django.views.generic import CreateView, TemplateView, UpdateView
  
 from carts.models import Cart
 from orders.utils import get_orders
+from common.mixins import CacheMixin
 from users.forms import LoginUserForm, RegisterUserForm, AccountUserForm
  
 
@@ -78,9 +80,9 @@ class UserCartView(TemplateView):
 #
 #     return render(request, 'users/login.html', context=data)
 
-def logout_user(request):
-    logout(request)
-    return HttpResponseRedirect(reverse('users:login'))
+# def logout_user(request):
+#     logout(request)
+#     return HttpResponseRedirect(reverse('users:login'))
 
 
 # def account_user(request):
@@ -111,7 +113,7 @@ class RegisterUser(CreateView):
 
 
 
-class AccountUser(LoginRequiredMixin, UpdateView):
+class AccountUser(LoginRequiredMixin, CacheMixin, UpdateView):
     model = get_user_model()
     form_class = AccountUserForm
     template_name = 'users/user_account.html'
@@ -124,7 +126,10 @@ class AccountUser(LoginRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs) -> dict[str, any]:
         context = super().get_context_data(**kwargs)
         context['title'] = 'Аккаунт'
-        context['orders'] = get_orders(self.request)
+
+        orders = get_orders(self.request)
+
+        context['orders'] = self.set_get_cache(orders, f'user_{self.request.user.id}_orders', 60 * 5)
         return context
 
 

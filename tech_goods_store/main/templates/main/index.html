@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cache %}
 
 {% block header %}
     {% include "header_with_carts_buttom.html" %}
 {% endblock %}
 
 {% block content %}
+{% cache 60 slider-three %}
 <div class="slider-area slider-style-three">
     <div class="container">
         <div class="row">
@@ -56,6 +58,7 @@
         </div>
     </div>
 </div>
+{% endcache %}
 <!-- Slider Area End --> 
 <!-- Product Area Start -->
 <div class="product-area pt-30">

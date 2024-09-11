@@ -1,5 +1,6 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
+{% load cache %}
         {% block header %}
             {% include 'header_with_carts_buttom.html' %}
         {% endblock %}
@@ -69,6 +70,7 @@
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
+                                            {% comment %} {% cache 60 usersorders user.id %} {% endcomment %}
                                             <tbody>
                                                 {% for order in orders %}
                                                 <tr>
@@ -83,6 +85,7 @@
                                                 {% endfor %}
                                     
                                             </tbody>
+                                            {% comment %} {% endcache %} {% endcomment %}
                                         </table>
                                     </div>
                                 </div>

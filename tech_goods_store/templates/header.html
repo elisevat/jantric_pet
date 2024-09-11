@@ -1,5 +1,6 @@
 {% load static %}
 {% load blog_tags %}
+{% load cache %}
 <header>
 
 <div class="header-top">
@@ -62,11 +63,13 @@
                             <div class="middle-menu pull-right">
                                 <nav>
                                     <ul class="middle-menu-list">
+                                        {% cache 60 mainmenu %}
                                         {% for el in mainmenu %}
 
                                         <li><a href="{% url el.url %}">{{ el.name }}</a></li>
 
                                         {% endfor %}
+                                        {% endcache %}
                                     </ul>
                                 </nav>
                             </div>
@@ -87,6 +90,7 @@
                             <div class="mobile-menu">
                                 <nav>
                                     <ul>
+                                        {% cache 60 mainmenu2 %}
                                         {% for el in mainmenu %}
 
                                         <li><a href="{{ el.url }}">{{ el.name }}</a>
@@ -97,6 +101,7 @@
 
 
                                         {% endfor %}
+                                        {% endcache %}
 
 
                                     </ul>

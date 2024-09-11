@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
 
     'blog',
-    'services',
+    'common',
     'users',
     'main',
     'goods',
@@ -81,7 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'services.context_processors.get_menu'
+                'common.context_processors.get_menu'
             ],
         },
     },
@@ -104,7 +104,12 @@ DATABASES = {
     }
 }
 
-
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
+        "LOCATION": BASE_DIR / "cache",
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
