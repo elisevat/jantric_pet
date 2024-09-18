@@ -17,5 +17,6 @@ urlpatterns = [
     path('add_post/', views.AddPostView.as_view(), name='add_post'),
     path('feed/', LatestPostsFeed(), name='posts_feed'),
     # path('search/', views.posts_search, name='posts_search'),
+
 ]
 

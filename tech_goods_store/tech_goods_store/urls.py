@@ -22,6 +22,8 @@ from blog.sitemaps import PostSitemap
 from tech_goods_store import settings
 from debug_toolbar.toolbar import debug_toolbar_urls
 
+from blog.views import PostsAPIView
+
 sitemaps = {
     'posts': PostSitemap,
 }
@@ -35,7 +37,10 @@ urlpatterns = [
     path('cart/', include('carts.urls', namespace='carts')),
     path('orders/', include('orders.urls', namespace='orders')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
-         name='django.contrib.sitemaps.views.sitemap')
+         name='django.contrib.sitemaps.views.sitemap'),
+
+    
+    path('api/v1/postslist/', PostsAPIView.as_view()),
 ]
 
 if settings.DEBUG:

@@ -1,25 +1,43 @@
 from typing import Any
-from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
-from django.contrib.postgres.search import TrigramSimilarity
 from django.core.mail import send_mail
-from django.core.paginator import Paginator
 from django.db.models import Count
+from django.forms import model_to_dict
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse, reverse_lazy
-from django.utils.text import slugify
+from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, FormView
 from taggit.models import Tag
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
+from common.utils import unique_slugify
+
+
+
+from .serializers import PostsSerializer
  
-from blog.models import Posts, Comment
+from .models import Posts, Comment
 from .forms import EmailPostForm, AddCommentForm, SearchForm, AddPostForm
 
-from django.views.decorators.http import require_POST
-
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 # Create your views here.
+class PostsAPIView(APIView):
+
+    def get(self, request):
+        lst = Posts.objects.all().values()
+        return Response({'posts': list(lst)})
+
+    def post(self, request):
+        post_new = Posts.objects.create(
+            title=request.data['title'],
+            content=request.data['content'],
+            cats_id=request.data['cats_id']
+        )
+        return Response({'post': post_new.get_absolute_url()})
+# class PostsAPIView(generics.ListAPIView):
+#     queryset = Posts.objects.all()
+#     serializer_class = PostsSerializer
 
 
 class PostsListHome(ListView):

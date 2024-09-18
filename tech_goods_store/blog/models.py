@@ -26,7 +26,7 @@ class Posts(models.Model):
         PUBLISH = 1, 'Опубликовано'
     title = models.CharField(max_length=250, verbose_name='Заголовок')
     slug = models.SlugField(max_length=250, unique=True, unique_for_date='date_publish', verbose_name='Слаг')
-    image = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True, default=None, verbose_name='Изображение')
+    image = models.ImageField(upload_to='photo/%Y/%m/%d/', blank=True, null=True, default=None, verbose_name='Изображение')
     content = models.TextField(blank=True, verbose_name='Контент')
     author = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, related_name='posts', blank=True, verbose_name='Автор', null=True)
     date_create = models.DateTimeField(auto_now_add=True, verbose_name='Создан')
