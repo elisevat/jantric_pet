@@ -41,6 +41,7 @@ urlpatterns = [
 
     
     path('api/v1/postslist/', PostsAPIView.as_view()),
+    path('api/v1/postslist/<int:pk>/', PostsAPIView.as_view()),
 ]
 
 if settings.DEBUG:

@@ -1,6 +1,7 @@
 from typing import Any
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from django.core.mail import send_mail
+from django.core.serializers import serialize
 from django.db.models import Count
 from django.forms import model_to_dict
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
@@ -24,21 +25,49 @@ from rest_framework.response import Response
 # Create your views here.
 class PostsAPIView(APIView):
 
-    def get(self, request):
-        lst = Posts.objects.all().values()
-        return Response({'posts': list(lst)})
+    def get(self, request, *args, **kwargs):
+        lst = Posts.objects.all()
+        return Response({'posts': PostsSerializer(lst, many=True).data})
 
-    def post(self, request):
-        post_new = Posts.objects.create(
-            title=request.data['title'],
-            content=request.data['content'],
-            cats_id=request.data['cats_id']
-        )
-        return Response({'post': post_new.get_absolute_url()})
-# class PostsAPIView(generics.ListAPIView):
-#     queryset = Posts.objects.all()
-#     serializer_class = PostsSerializer
+    def post(self, request, *args, **kwargs):
+        serializer = PostsSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
 
+        return Response({'new_post': serializer.data})
+    
+    def put(self, request, *args, **kwargs):
+        pk = kwargs.get('pk', None)
+        if not pk:
+            return Response({'error': 'Нет идентификатора (pk) записи'})
+
+        try:
+            instance = Posts.objects.get(pk=pk)
+        except Exception:
+            return Response({'Неверно укажен идентификтор (pk)'})
+
+        serializer = PostsSerializer(data=request.data, instance=instance)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response({"post": serializer.data})
+
+    def delete(self, request, *args, **kwargs):
+        pk = kwargs.get('pk', None)
+        if not pk:
+            return Response({"error": "Метод DELETE не определён. Укажите идентификатор pk"})
+
+        try:
+            instance = Posts.objects.get(pk=pk)
+            
+        except Exception:
+            return Response({"error": "Ошибка метода DELETE. Проверьте переданный параметр pk"})
+        
+        serializer = PostsSerializer(instance)
+
+        instance.delete()
+
+        return Response({"post": serializer.data})
 
 class PostsListHome(ListView):
     template_name = 'blog/blog.html'
