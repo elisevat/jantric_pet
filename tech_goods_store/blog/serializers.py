@@ -8,6 +8,7 @@ from .models import Posts
 
 
 class PostsSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         model = Posts
         fields = ('pk', 'title', 'content', 'image', 'cats', 'author', 'is_published')

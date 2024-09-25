@@ -30,26 +30,6 @@ sitemaps = {
     'posts': PostSitemap,
 }
 
-class MyCustomRouter(routers.SimpleRouter):
-    routes = [
-        routers.Route(
-            url=r'^{prefix}/$',
-            mapping={'get': 'list'},
-            name='{basename}-list',
-            detail=False,
-            initkwargs={'suffix': 'List'}
-        ),
-        routers.Route(
-            url=r'^{prefix}/{lookup}/$',
-            mapping={'get': 'retrieve'},
-            name='{basename}-detail',
-            detail=True,
-            initkwargs={'suffix': 'Detail'}
-        )
-    ]
-
-router = MyCustomRouter()
-router.register(r'posts', views.PostsViewSet, basename='posts')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -62,9 +42,9 @@ urlpatterns = [
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
 
-    path('api/v1/', include(router.urls)),
-#     path('api/v1/postslist/', views.PostsViewSet.as_view({'get': 'list'})),
-#     path('api/v1/postslist/<int:pk>/', views.PostsViewSet.as_view({'put': 'update'})),
+    path('api/v1/posts/', views.PostsAPIList.as_view()),
+    path('api/v1/postslist/<int:pk>/', views.PostsAPIUpdate.as_view()),
+    path('api/v1/postslist/<int:pk>/', views.PostsAPIDestroy.as_view()),
 ]
 
 if settings.DEBUG:
