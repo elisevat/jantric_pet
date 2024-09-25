@@ -69,7 +69,7 @@ class Category(models.Model):
     name = models.CharField(max_length=150, verbose_name='Название')
 
     not_empty = NotEmptyManager()
-    object = models.Manager()
+    objects = models.Manager()
 
     class Meta:
         verbose_name = 'Категория'

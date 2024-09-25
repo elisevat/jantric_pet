@@ -13,61 +13,49 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMix
 from common.utils import unique_slugify
 
 
-
 from .serializers import PostsSerializer
  
-from .models import Posts, Comment
+from .models import Posts, Comment, Category
 from .forms import EmailPostForm, AddCommentForm, SearchForm, AddPostForm
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
+from rest_framework import generics, viewsets
+from rest_framework.decorators import action
 # Create your views here.
-class PostsAPIView(APIView):
 
-    def get(self, request, *args, **kwargs):
-        lst = Posts.objects.all()
-        return Response({'posts': PostsSerializer(lst, many=True).data})
+class PostsViewSet(viewsets.ModelViewSet):
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
 
-    def post(self, request, *args, **kwargs):
-        serializer = PostsSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
+    # def get_queryset(self):
+    #     pk = self.kwargs.get('pk')
 
-        return Response({'new_post': serializer.data})
-    
-    def put(self, request, *args, **kwargs):
-        pk = kwargs.get('pk', None)
-        if not pk:
-            return Response({'error': 'Нет идентификатора (pk) записи'})
-
-        try:
-            instance = Posts.objects.get(pk=pk)
-        except Exception:
-            return Response({'Неверно укажен идентификтор (pk)'})
-
-        serializer = PostsSerializer(data=request.data, instance=instance)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        return Response({"post": serializer.data})
-
-    def delete(self, request, *args, **kwargs):
-        pk = kwargs.get('pk', None)
-        if not pk:
-            return Response({"error": "Метод DELETE не определён. Укажите идентификатор pk"})
-
-        try:
-            instance = Posts.objects.get(pk=pk)
-            
-        except Exception:
-            return Response({"error": "Ошибка метода DELETE. Проверьте переданный параметр pk"})
+    #     if not pk:
+    #         return Posts.objects.all()[:3]
         
-        serializer = PostsSerializer(instance)
+    #     return Posts.objects.filter(pk=pk)
+    
+    @action(methods=['get'], detail=True)
+    def categories(self, request, pk=None):
+        cats = Category.objects.get(pk=pk)
+        return Response({'cats': cats.name })
 
-        instance.delete()
+class PostsAPIList(generics.ListCreateAPIView):
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
 
-        return Response({"post": serializer.data})
+class PostsAPIUpdate(generics.RetrieveUpdateAPIView):
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
+
+class PostsAPIDestroy(generics.RetrieveDestroyAPIView):
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
+
+class PostsAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Posts.objects.all()
+    serializer_class = PostsSerializer
 
 class PostsListHome(ListView):
     template_name = 'blog/blog.html'
