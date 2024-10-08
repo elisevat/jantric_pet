@@ -6,10 +6,17 @@ from django.shortcuts import get_object_or_404, render
 from django.core.paginator import Paginator
 from django.views.generic import DetailView, ListView
 
+from .serializers import ProductsSerializer
 from .utils import q_search
 from .models import Categories, Products
 
+from rest_framework import viewsets
+
 # Create your views here.
+class ProductsViewSet(viewsets.ModelViewSet):
+    queryset = Products.objects.all()
+    serializer_class = ProductsSerializer
+
 class ShopView(ListView):
     model = Products
     template_name = 'goods/shop.html'

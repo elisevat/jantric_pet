@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
 
     'rest_framework',
+    'djoser',
+    'rest_framework.authtoken',
 
     'blog',
     'common',
@@ -191,8 +193,18 @@ MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
 
 REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 4,
      'DEFAULT_RENDERER_CLASSES': [
          'rest_framework.renderers.JSONRenderer',
         #  'rest_framework.renderers.BrowsableAPIRenderer',
-     ]
+     ],
+
+     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+
+    
 }
